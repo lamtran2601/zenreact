@@ -1,6 +1,6 @@
 {
   "name": "@zenreact/core",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "type": "module",
   "description": "Core optimization features for ZenReact - High-performance React state management and rendering optimization",
   "main": "dist/index.js",
