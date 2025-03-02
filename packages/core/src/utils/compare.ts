@@ -1,87 +1,43 @@
-/**
- * Type guard to check if a value is a plain object
- */
-export function isPlainObject(value: unknown): value is Record<string, unknown> {
-  if (typeof value !== 'object' || value === null || Array.isArray(value)) {
-    return false;
-  }
-
-  // Check if it's a plain object (created by {} or Object.create(null))
-  const prototype = Object.getPrototypeOf(value);
-  return prototype === null || prototype === Object.prototype;
-}
+import { CompareFunction, IsPlainObject } from '../types';
 
 /**
- * Deep comparison of objects with improved type safety
+ * Simple shallow comparison for values.
+ * Basic implementation with focus on common use cases.
+ *
+ * @param val1 - First value to compare
+ * @param val2 - Second value to compare
+ * @returns boolean indicating if values are equal
  */
-export function defaultCompare<T extends object>(obj1: T, obj2: T): boolean {
-  // Handle reference equality
-  if (obj1 === obj2) return true;
+export const simpleCompare: CompareFunction = (val1, val2) => {
+  // Handle exact equality (including null/undefined)
+  if (val1 === val2) return true;
 
-  // Handle arrays
-  if (Array.isArray(obj1) && Array.isArray(obj2)) {
-    if (obj1 === obj2) return true; // Same reference
-    if (obj1.length !== obj2.length) return false; // Different lengths
-    return obj1.every((_, index) => {
-      const item1 = obj1[index];
-      const item2 = obj2[index];
-      if (
-        typeof item1 === 'object' &&
-        item1 !== null &&
-        typeof item2 === 'object' &&
-        item2 !== null
-      ) {
-        return defaultCompare(item1, item2);
-      }
-      return item1 === item2;
-    });
+  // Handle null/undefined mismatches
+  if (val1 == null || val2 == null) return false;
+
+  // Handle non-objects (numbers, strings, etc)
+  if (typeof val1 !== 'object' || typeof val2 !== 'object') return false;
+
+  // Handle arrays with simple comparison
+  if (Array.isArray(val1) && Array.isArray(val2)) {
+    return val1.length === val2.length && val1.every((item, i) => item === val2[i]);
   }
 
-  // Handle non-plain objects (Date, RegExp, etc)
-  if (!isPlainObject(obj1) || !isPlainObject(obj2)) {
-    return false;
-  }
-  if (Array.isArray(obj1) && Array.isArray(obj2)) {
-    if (obj1 === obj2) return true; // Same reference
-    if (obj1.length !== obj2.length) return false; // Different lengths
-    return obj1.every((_, index) => {
-      const item1 = obj1[index];
-      const item2 = obj2[index];
-      if (
-        typeof item1 === 'object' &&
-        item1 !== null &&
-        typeof item2 === 'object' &&
-        item2 !== null
-      ) {
-        return defaultCompare(item1, item2);
-      }
-      return item1 === item2;
-    });
-  }
-
-  // Get all keys from both objects
+  // Simple shallow object comparison
+  const obj1 = val1 as Record<string, unknown>;
+  const obj2 = val2 as Record<string, unknown>;
   const keys1 = Object.keys(obj1);
   const keys2 = Object.keys(obj2);
 
-  // Compare number of keys
-  if (keys1.length !== keys2.length) return false;
+  return keys1.length === keys2.length && keys1.every((key) => obj1[key] === obj2[key]);
+};
 
-  // Ensure all keys in obj1 exist in obj2 with same values
-  return keys1.every((key) => {
-    if (!Object.prototype.hasOwnProperty.call(obj2, key)) return false;
-
-    const val1 = obj1[key];
-    const val2 = obj2[key];
-
-    // Handle undefined values
-    if (val1 === undefined && val2 === undefined) return true;
-    if (val1 === undefined || val2 === undefined) return false;
-
-    // Recursively compare objects
-    if (typeof val1 === 'object' && val1 !== null && typeof val2 === 'object' && val2 !== null) {
-      return defaultCompare(val1, val2);
-    }
-
-    return val1 === val2;
-  });
-}
+/**
+ * Type guard for checking if a value is a plain object
+ *
+ * @param value - Value to check
+ * @returns boolean indicating if value is a plain object
+ */
+export const isPlainObject: IsPlainObject = (value): value is Record<string, unknown> => {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+};

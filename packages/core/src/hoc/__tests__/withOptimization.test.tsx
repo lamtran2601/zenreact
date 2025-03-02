@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { withOptimization } from '../index';
+import { withOptimization } from '../withOptimization';
 
 describe('withOptimization', () => {
   it('renders component with initial props', () => {
@@ -36,5 +36,13 @@ describe('withOptimization', () => {
 
     rerender(<OptimizedComponent text="Test" />);
     expect(renderCount).toHaveBeenCalledTimes(1); // Should not re-render
+  });
+
+  it('preserves component display name', () => {
+    const TestComponent = ({ text }: { text: string }) => <div>{text}</div>;
+    TestComponent.displayName = 'CustomTestComponent';
+
+    const OptimizedComponent = withOptimization(TestComponent);
+    expect(OptimizedComponent.displayName).toBe('ZenReact(CustomTestComponent)');
   });
 });
