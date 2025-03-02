@@ -1,5 +1,17 @@
 # @zenreact/core
 
+## 0.1.5
+
+### Patch Changes
+
+- Version bump to resolve npm publishing conflict
+
+## 0.1.4
+
+### Patch Changes
+
+- Updated core package dependencies and build configuration
+
 ## 0.1.3
 
 ### Patch Changes
