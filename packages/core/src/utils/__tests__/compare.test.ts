@@ -1,4 +1,4 @@
-import { simpleCompare, isPlainObject } from '../compare';
+import { simpleCompare } from '../compare';
 
 describe('simpleCompare', () => {
   it('handles primitive values correctly', () => {
@@ -40,47 +40,5 @@ describe('simpleCompare', () => {
 
     expect(simpleCompare(obj1, obj2)).toBe(false); // Different object references
     expect(simpleCompare(obj1, obj3)).toBe(true); // Same reference for nested object
-  });
-});
-
-describe('isPlainObject', () => {
-  it('identifies plain objects correctly', () => {
-    expect(isPlainObject({})).toBe(true);
-    expect(isPlainObject({ a: 1 })).toBe(true);
-    expect(isPlainObject(Object.create(null))).toBe(true);
-  });
-
-  it('rejects non-objects', () => {
-    expect(isPlainObject(null)).toBe(false);
-    expect(isPlainObject(undefined)).toBe(false);
-    expect(isPlainObject(42)).toBe(false);
-    expect(isPlainObject('string')).toBe(false);
-    expect(isPlainObject(true)).toBe(false);
-  });
-
-  it('rejects arrays', () => {
-    expect(isPlainObject([])).toBe(false);
-    expect(isPlainObject([1, 2, 3])).toBe(false);
-  });
-
-  it('rejects functions', () => {
-    // Using functions with return values to avoid eslint errors
-    expect(isPlainObject(() => null)).toBe(false);
-    expect(
-      isPlainObject(function () {
-        return null;
-      })
-    ).toBe(false);
-    expect(isPlainObject(Date)).toBe(false);
-  });
-
-  it('rejects class instances', () => {
-    class TestClass {
-      getValue() {
-        return true;
-      }
-    }
-    expect(isPlainObject(new TestClass())).toBe(true); // Note: In JavaScript, class instances are still plain objects
-    expect(isPlainObject(new Date())).toBe(true); // Note: Date objects are still objects
   });
 });

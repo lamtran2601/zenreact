@@ -4,6 +4,7 @@ const config = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   testMatch: ['**/__tests__/**/*.test.[jt]s?(x)'],
+  testPathIgnorePatterns: ['<rootDir>/dist/'],
   transform: {
     '^.+\\.(ts|tsx)$': [
       'ts-jest',

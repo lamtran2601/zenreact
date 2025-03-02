@@ -4,12 +4,19 @@ import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
+import analyze from 'rollup-plugin-analyzer';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
 export default defineConfig({
   input: 'src/index.ts',
   external: ['react', 'react-dom'],
+  treeshake: {
+    propertyReadSideEffects: false,
+    moduleSideEffects: false,
+    tryCatchDeoptimization: false,
+    unknownGlobalSideEffects: false
+  },
   plugins: [
     typescript({
       tsconfig: './tsconfig.json',
@@ -17,21 +24,55 @@ export default defineConfig({
       declarationDir: 'dist',
       exclude: ['**/*.test.ts', '**/*.test.tsx', '**/__tests__/**'],
     }),
-    resolve(),
+    resolve({
+      extensions: ['.ts', '.tsx']
+    }),
     commonjs(),
-    isProduction && terser(),
+    isProduction && terser({
+      compress: {
+        pure_getters: true,
+        unsafe: true,
+        unsafe_comps: true,
+        passes: 3
+      },
+      mangle: {
+        properties: {
+          regex: /^_/
+        }
+      }
+    }),
+    analyze({
+      summaryOnly: true,
+      limit: 10
+    })
   ].filter(Boolean),
   output: [
     {
       file: 'dist/index.js',
       format: 'cjs',
-      sourcemap: true,
+      sourcemap: isProduction,
       exports: 'named',
+      compact: true,
+      hoistTransitiveImports: false,
+      generatedCode: {
+        preset: 'es2015',
+        arrowFunctions: true,
+        constBindings: true,
+        objectShorthand: true
+      }
     },
     {
       file: 'dist/index.esm.js',
       format: 'esm',
-      sourcemap: true,
+      sourcemap: isProduction,
+      compact: true,
+      hoistTransitiveImports: false,
+      generatedCode: {
+        preset: 'es2015',
+        arrowFunctions: true,
+        constBindings: true,
+        objectShorthand: true
+      }
     },
   ],
 });

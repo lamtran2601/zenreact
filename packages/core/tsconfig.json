@@ -5,7 +5,14 @@
     "rootDir": "./src",
     "composite": true,
     "jsx": "react",
-    "types": ["jest", "@testing-library/jest-dom"]
+    "types": ["jest", "@testing-library/jest-dom"],
+    "removeComments": true,
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "stripInternal": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationDir": "./dist/types"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

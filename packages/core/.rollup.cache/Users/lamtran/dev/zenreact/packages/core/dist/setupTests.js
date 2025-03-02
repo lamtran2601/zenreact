@@ -1,6 +1,4 @@
-/// <reference types="node" />
 import '@testing-library/jest-dom';
-// Mock window.performance for tests
 const originalPerformance = global.performance || {};
 Object.defineProperty(global, 'performance', {
     configurable: true,
@@ -9,7 +7,6 @@ Object.defineProperty(global, 'performance', {
         now: jest.fn(() => Date.now()),
     },
 });
-// Mock setTimeout/clearTimeout
 Object.defineProperty(global, 'setTimeout', {
     configurable: true,
     value: jest.fn((fn) => {
