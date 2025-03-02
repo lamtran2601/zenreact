@@ -13,17 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'pnpm'
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-          run_install: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -37,13 +37,6 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Upload coverage reports
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./packages/core/coverage/coverage-final.json
-          flags: unittests
-
   release:
     needs: build-and-test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -52,17 +45,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'pnpm'
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-          run_install: false
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -73,8 +67,12 @@ jobs:
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
           pnpm run release
+
+      - name: Publish to NPM
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish --access public --no-git-checks
