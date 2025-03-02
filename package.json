@@ -1,7 +1,6 @@
 {
   "name": "zenreact",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
   "description": "ZenReact - High-performance React state management and rendering optimization",
   "workspaces": [
