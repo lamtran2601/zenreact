@@ -1,6 +1,7 @@
 {
   "name": "@zenreact/core",
   "version": "0.1.0",
+  "type": "module",
   "description": "Core optimization features for ZenReact - High-performance React state management and rendering optimization",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -11,7 +12,7 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "tsc && rollup -c",
+    "build": "tsc && rollup -c rollup.config.mjs",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",

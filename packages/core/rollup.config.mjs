@@ -1,3 +1,5 @@
+// @ts-check
+import { defineConfig } from 'rollup';
 import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -5,14 +7,14 @@ import terser from '@rollup/plugin-terser';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-const createConfig = () => ({
-  input: 'packages/core/src/index.ts',
+export default defineConfig({
+  input: 'src/index.ts',
   external: ['react', 'react-dom'],
   plugins: [
     typescript({
-      tsconfig: './packages/core/tsconfig.json',
+      tsconfig: './tsconfig.json',
       declaration: true,
-      declarationDir: 'packages/core/dist',
+      declarationDir: 'dist',
       exclude: ['**/*.test.ts', '**/*.test.tsx', '**/__tests__/**'],
     }),
     resolve(),
@@ -21,17 +23,15 @@ const createConfig = () => ({
   ].filter(Boolean),
   output: [
     {
-      file: 'packages/core/dist/index.js',
+      file: 'dist/index.js',
       format: 'cjs',
       sourcemap: true,
       exports: 'named',
     },
     {
-      file: 'packages/core/dist/index.esm.js',
+      file: 'dist/index.esm.js',
       format: 'esm',
       sourcemap: true,
     },
   ],
 });
-
-export default createConfig();
