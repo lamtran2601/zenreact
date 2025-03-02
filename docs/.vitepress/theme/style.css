@@ -1,0 +1,79 @@
+/* Custom styles for ZenReact documentation */
+
+:root {
+  --vp-c-brand: #3498db;
+  --vp-c-brand-light: #5dade2;
+  --vp-c-brand-lighter: #85c1e9;
+  --vp-c-brand-dark: #2e86c1;
+  --vp-c-brand-darker: #2874a6;
+
+  /* Typography */
+  --vp-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  
+  /* Custom container colors */
+  --vp-custom-block-tip-border: var(--vp-c-brand);
+  --vp-custom-block-tip-text: var(--vp-c-brand-darker);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
+}
+
+/* Code blocks styling */
+.vp-doc div[class*='language-'] {
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+/* Custom content width for better readability */
+.VPDoc.has-aside .content-container {
+  max-width: 720px;
+}
+
+/* Hero section customization */
+.VPHero .name,
+.VPHero .text {
+  background: linear-gradient(120deg, var(--vp-c-brand), var(--vp-c-brand-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Feature section enhancements */
+.VPFeatures .box {
+  background-color: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.VPFeatures .box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Code group tabs */
+.vp-doc .custom-block.details {
+  border-radius: 8px;
+  padding: 16px;
+}
+
+/* API method labels */
+.api-method {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.api-method.get {
+  background-color: var(--vp-c-brand-dimm);
+  color: var(--vp-c-brand-darker);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .VPDoc.has-aside .content-container {
+    max-width: 100%;
+  }
+}

@@ -18,7 +18,7 @@
     "test:watch": "jest --watch",
     "clean": "rimraf dist coverage",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run clean && npm run build"
+    "prepublishOnly": "pnpm run clean && pnpm run build"
   },
   "packageManager": "pnpm@10.5.2",
   "devDependencies": {
