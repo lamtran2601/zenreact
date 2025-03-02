@@ -1,32 +1,39 @@
 {
   "name": "@zenreact/core",
   "version": "0.1.0",
-  "description": "Core optimization features for ZenReact",
+  "description": "Core optimization features for ZenReact - High-performance React state management and rendering optimization",
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && rollup -c",
     "test": "jest",
-    "clean": "rimraf dist",
-    "dev": "tsc -w"
-  },
-  "dependencies": {
-    "react": "^18.2.0"
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "clean": "rimraf dist coverage",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run clean && npm run build"
   },
   "devDependencies": {
-    "@jest/globals": "^29.0.0",
-    "@testing-library/jest-dom": "^6.0.0",
-    "@testing-library/react": "^14.0.0",
-    "@types/jest": "^29.0.0",
-    "@types/react": "^18.0.0",
-    "jest": "^29.0.0",
-    "jest-environment-jsdom": "^29.0.0",
-    "rimraf": "^5.0.0",
-    "ts-jest": "^29.0.0",
-    "typescript": "^5.0.0"
+    "@jest/globals": "^29.7.0",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "@types/jest": "^29.5.12",
+    "@types/react": "^18.2.58",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "rimraf": "^5.0.5",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0"
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "publishConfig": {
     "access": "public"
@@ -34,8 +41,23 @@
   "keywords": [
     "react",
     "optimization",
-    "performance"
+    "performance",
+    "state-management",
+    "react-hooks",
+    "rendering"
   ],
-  "author": "",
+  "author": {
+    "name": "Zen Development Team",
+    "email": "team@zenreact.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zenreact/zenreact.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/zenreact/zenreact/issues"
+  },
+  "homepage": "https://zenreact.dev",
   "license": "MIT"
 }
