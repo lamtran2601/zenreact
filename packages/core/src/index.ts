@@ -1,8 +1,3 @@
-// Re-export hooks
-export { useOptimizedState } from './hooks/useOptimizedState';
-
-// Re-export HOCs
-export { withOptimization } from './hoc/withOptimization';
-
-// Re-export utilities
-export { simpleCompare } from './utils/compare';
+// Export monitoring functionality
+export { monitor, type Metric, type MonitoringOptions } from './monitoring';
+export { useMonitor, type UseMonitorOptions } from './monitoring/hooks';
