@@ -124,10 +124,11 @@ interface CollectedMetrics {
    - Gauges for current values
    - Counters for incremental values
 
-4. 📝 Real-time monitoring (Planned for next iteration)
-   - Will require WebSocket/SSE setup
-   - Dashboard integration
-   - Live updates
+4. ✅ Real-time monitoring (Completed)
+   - WebSocket setup implemented with reconnection handling
+   - Bidirectional metric streaming
+   - Buffer management and aggregation
+   - React hook integration (useRealTimeMetrics)
 
 ## 3. Testing Strategy
 
@@ -230,14 +231,55 @@ console.log(metrics.renders);
 
 ## 6. Next Steps
 
-### Future Enhancements (After Basic Implementation)
+### Documentation - Real-time Monitoring
+
+```typescript
+/**
+ * Real-time metrics monitoring via WebSocket
+ * Provides bidirectional communication for live metric updates
+ */
+interface RealTimeMetricsOptions {
+  endpoint: string;           // WebSocket server endpoint
+  updateInterval?: number;    // Update frequency (ms)
+  bufferSize?: number;       // Max metrics to buffer
+  retryInterval?: number;    // Reconnection delay (ms)
+}
+
+// React Hook Usage
+const YourComponent = () => {
+  const metrics = useRealTimeMetrics({
+    endpoint: 'ws://metrics-server:3001/metrics'
+  });
+
+  // metrics contains latest aggregated data
+  return <MetricsDisplay data={metrics} />;
+};
+
+// Direct Usage
+const monitor = new RealTimeMetricsMonitor({
+  endpoint: 'ws://metrics-server:3001/metrics'
+});
+
+monitor.start();
+monitor.trackRender('MyComponent', 15.5);
+monitor.trackMemory(50000000, 100000000);
+monitor.trackNetworkRequest('/api/data', 250, 200);
+monitor.trackCustomMetric('businessMetric', 42, { category: 'sales' });
+```
+
+### Future Enhancements (After Real-time Implementation)
 
 1. ✅ Add periodic memory sampling
 2. ✅ Implement metric aggregation
 3. ✅ Add custom metric support
-4. 📝 Create real-time monitoring (Next iteration)
+4. ✅ Create real-time monitoring
+5. 📝 Add dashboard visualization (Next iteration)
+6. 📝 Implement alert system
+7. 📝 Add metric persistence
 
-These enhancements will only be considered after the basic implementation is working and tested.
+These enhancements will build upon our solid real-time monitoring foundation.
+
+## 7. Dependencies
 
 ## 7. Dependencies
 
