@@ -90,15 +90,19 @@ describe('CustomMetricsManager', () => {
       expect(metrics.custom[0].metadata.tags).toEqual({ service: 'api' });
     });
 
-    test('handles zero and negative increments', () => {
+    test('validates counter increments', () => {
       const counter = customMetrics.createCounter('test_counter');
 
+      // Zero is valid
       counter.increment(0);
+      // Negative values should not be recorded due to validation
       counter.increment(-1);
+      // Positive values should be recorded
+      counter.increment(1);
 
       const metrics = collector.getMetrics();
-      expect(metrics.custom).toHaveLength(2);
-      expect(metrics.custom.map((m) => m.value)).toEqual([0, -1]);
+      expect(metrics.custom).toHaveLength(2); // Only 0 and 1 should be recorded
+      expect(metrics.custom.map((m) => m.value)).toEqual([0, 1]); // Negative value should be filtered
     });
   });
 

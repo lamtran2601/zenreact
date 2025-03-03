@@ -63,14 +63,26 @@ describe('MetricsCollector', () => {
 
   describe('network tracking', () => {
     test('tracks network call duration', () => {
-      const tracker = collector.trackNetwork('https://api.example.com');
-      tracker.complete(200);
+      let receivedStats: { requests: number; errors: number; averageTime: number } | undefined;
+      const unsubscribe = collector.trackNetwork({
+        urlPattern: /api\.example\.com/,
+        onStats: (stats) => {
+          receivedStats = stats;
+        },
+      });
 
-      const metrics = collector.getMetrics();
-      expect(metrics.network.length).toBe(1);
-      expect(metrics.network[0].value).toBe(100);
-      expect(metrics.network[0].metadata.status).toBe(200);
-      expect(metrics.network[0].metadata.url).toBe('https://api.example.com');
+      // Simulate a network request using proper network tracking
+      collector.trackNetworkRequest('https://api.example.com', 100, 200);
+
+      // Verify the onStats callback was called with correct stats
+      expect(receivedStats).toBeDefined();
+      if (!receivedStats) throw new Error('Stats should be defined');
+
+      expect(receivedStats.requests).toBe(1);
+      expect(receivedStats.errors).toBe(0);
+      expect(receivedStats.averageTime).toBe(100);
+
+      unsubscribe(); // Clean up subscription
     });
   });
 

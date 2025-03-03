@@ -14,15 +14,8 @@ export class CustomMetricsManager {
    * @param options Metric details including name, value and optional tags
    */
   track(options: CustomMetricOptions): void {
-    this.collector.addCustomMetric({
-      id: `custom_${options.name}_${Date.now()}`,
-      timestamp: Date.now(),
-      type: 'custom',
-      value: options.value,
-      metadata: {
-        name: options.name,
-        tags: options.tags || {},
-      },
+    this.collector.trackCustomMetric(options.name, options.value, {
+      tags: options.tags || {},
     });
   }
 

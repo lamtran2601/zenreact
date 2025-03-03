@@ -1,31 +1,38 @@
-export interface Metric {
-  name: string;
-  value: number;
-  timestamp: number;
-  component?: string;
-  metadata?: Record<string, unknown>;
-}
+import { MetricsCollector } from './metrics';
+import { AlertManager, AlertConfig, AlertThreshold, createThresholds } from './alerts/AlertManager';
+import { AggregatedMetrics } from './aggregator';
 
 export interface MonitoringOptions {
   enabled?: boolean;
   sampleRate?: number;
   customMetrics?: boolean;
   development?: boolean;
+  bufferSize?: number;
 }
 
 export class PerformanceMonitor {
   private static instance: PerformanceMonitor;
   private options: MonitoringOptions;
-  private metrics: Metric[] = [];
-
+  private collector: MetricsCollector;
+  private alertManager: AlertManager;
   private constructor(options: MonitoringOptions = {}) {
     this.options = {
       enabled: true,
       sampleRate: 1.0,
       customMetrics: true,
       development: process.env.NODE_ENV === 'development',
+      bufferSize: 1000,
       ...options,
     };
+
+    this.collector = new MetricsCollector({ bufferSize: this.options.bufferSize });
+    this.alertManager = new AlertManager();
+
+    // Set up default thresholds
+    this.alertManager.addThreshold(createThresholds.slowRender('*', 100));
+    this.alertManager.addThreshold(createThresholds.highMemoryUsage(100));
+    this.alertManager.addThreshold(createThresholds.slowNetwork(1000));
+    this.alertManager.addThreshold(createThresholds.highErrorRate(10));
   }
 
   static getInstance(options?: MonitoringOptions): PerformanceMonitor {
@@ -39,83 +46,127 @@ export class PerformanceMonitor {
     PerformanceMonitor.instance = new PerformanceMonitor(options);
   }
 
+  // Core tracking methods
   trackRender(componentName: string, duration: number): void {
     if (!this.shouldTrack()) return;
+    if (!this.isValidMetricInput(componentName, duration)) return;
+    this.collector.trackRender(componentName, duration);
+  }
 
-    this.addMetric({
-      name: 'component_render',
-      value: duration,
-      component: componentName,
-      timestamp: Date.now(),
-    });
+  private isValidMetricInput(name: string, value?: number): boolean {
+    return (
+      Boolean(name) &&
+      name.trim() !== '' &&
+      (value === undefined || (Number.isFinite(value) && value >= 0))
+    );
   }
 
   trackInteraction(componentName: string, type: string, duration: number): void {
     if (!this.shouldTrack()) return;
+    if (!this.isValidMetricInput(componentName) || !this.isValidMetricInput(type, duration)) return;
 
-    this.addMetric({
-      name: 'interaction',
-      value: duration,
+    const metricName = `interaction_${type}`;
+    if (!this.isValidMetricInput(metricName, duration)) return;
+
+    this.trackCustomMetric(metricName, duration, {
       component: componentName,
-      metadata: { type },
-      timestamp: Date.now(),
+      type,
     });
   }
 
-  addCustomMetric(name: string, value: number, metadata?: Record<string, unknown>): void {
+  trackMemory(): { used: number; total: number; limit: number } {
+    if (!this.shouldTrack()) return { used: 0, total: 0, limit: 0 };
+    return this.collector.trackMemory();
+  }
+
+  trackNetwork(options: {
+    urlPattern?: RegExp;
+    onStats?: (stats: { requests: number; errors: number; averageTime: number }) => void;
+  }): () => void {
+    return this.collector.trackNetwork(options);
+  }
+
+  // Custom metrics
+  trackCustomMetric(name: string, value: number, metadata?: Record<string, unknown>): void {
     if (!this.options.customMetrics || !this.shouldTrack()) return;
-
-    this.addMetric({
-      name,
-      value,
-      timestamp: Date.now(),
-      metadata: metadata || {},
-    });
+    if (!this.isValidMetricInput(name, value)) return;
+    this.collector.trackCustomMetric(name, value, metadata);
   }
 
-  getMetrics(): Metric[] {
-    return [...this.metrics];
+  // Alert configuration
+  configureAlert(
+    metricName: string,
+    config: AlertConfig & {
+      onTrigger: (message: string, level: 'warning' | 'error' | 'critical') => void;
+      onResolve: () => void;
+    }
+  ): () => void {
+    const threshold: AlertThreshold = {
+      id: `alert_${metricName}_${Date.now()}`,
+      name: `${metricName} Alert`,
+      description: `${metricName} exceeded threshold of ${config.threshold}`,
+      type: 'custom',
+      severity: config.level as AlertThreshold['severity'],
+      condition: (metrics: AggregatedMetrics) => {
+        const metric = metrics.custom.byName[metricName];
+        return metric && metric.latest > config.threshold;
+      },
+    };
+
+    this.alertManager.addThreshold(threshold);
+
+    const unsubscribe = this.alertManager.subscribe((alert) => {
+      if (alert.thresholdId === threshold.id) {
+        config.onTrigger(alert.message, alert.severity as 'warning' | 'error' | 'critical');
+      }
+    });
+
+    return () => {
+      unsubscribe();
+      this.alertManager.removeThreshold(threshold.id);
+    };
+  }
+
+  // Subscription methods
+  subscribeToMetric(name: string, callback: (value: number) => void): () => void {
+    return this.collector.subscribeToMetric(name, callback);
+  }
+
+  // Memory tracking control
+  startMemoryTracking(interval: number): void {
+    this.collector.startMemoryTracking(interval);
+  }
+
+  stopMemoryTracking(): void {
+    this.collector.stopMemoryTracking();
+  }
+
+  // Data access
+  getMetrics(): ReturnType<MetricsCollector['getMetrics']> {
+    return this.collector.getMetrics();
   }
 
   clearMetrics(): void {
-    this.metrics = [];
+    this.collector.clearMetrics();
+  }
+
+  enable(): void {
+    this.options.enabled = true;
+    this.collector.enable();
+  }
+
+  disable(): void {
+    this.options.enabled = false;
+    this.collector.disable();
   }
 
   private shouldTrack(): boolean {
     return (this.options.enabled ?? true) && Math.random() <= (this.options.sampleRate || 1);
   }
-
-  private isValidMetric(metric: Metric): boolean {
-    // Validate required fields
-    if (!metric.name || typeof metric.name !== 'string') return false;
-
-    // Validate value is a reasonable number (between 0 and 1 hour in milliseconds)
-    const MAX_REASONABLE_DURATION = 3600000; // 1 hour in milliseconds
-    if (
-      typeof metric.value !== 'number' ||
-      !Number.isFinite(metric.value) ||
-      metric.value < 0 ||
-      metric.value > MAX_REASONABLE_DURATION
-    )
-      return false;
-
-    // Validate specific metric types
-    if (metric.name === 'component_render') {
-      if (!metric.component) return false;
-    }
-
-    if (metric.name === 'interaction') {
-      if (!metric.component || !metric.metadata?.type) return false;
-    }
-
-    return true;
-  }
-
-  private addMetric(metric: Metric): void {
-    if (this.isValidMetric(metric)) {
-      this.metrics.push(metric);
-    }
-  }
 }
 
 export const monitor = PerformanceMonitor.getInstance();
+
+// Type exports
+export type { AlertConfig } from './alerts/AlertManager';
+export type { CustomMetric } from './metrics';

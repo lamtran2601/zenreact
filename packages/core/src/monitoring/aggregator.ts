@@ -1,4 +1,10 @@
-import { RenderMetric, MemoryMetric, NetworkMetric, CollectedMetrics } from './metrics';
+import {
+  RenderMetric,
+  MemoryMetric,
+  NetworkMetric,
+  CustomMetric,
+  CollectedMetrics,
+} from './metrics';
 
 export interface AggregatedMetrics {
   renders: {
@@ -31,6 +37,18 @@ export interface AggregatedMetrics {
       duration: number;
     }>;
   };
+  custom: {
+    byName: Record<
+      string,
+      {
+        count: number;
+        latest: number;
+        average: number;
+        max: number;
+        min: number;
+      }
+    >;
+  };
 }
 
 export class MetricsAggregator {
@@ -42,6 +60,56 @@ export class MetricsAggregator {
       renders: this.aggregateRenderMetrics(metrics.renders),
       memory: this.aggregateMemoryMetrics(metrics.memory),
       network: this.aggregateNetworkMetrics(metrics.network),
+      custom: this.aggregateCustomMetrics(metrics.custom),
+    };
+  }
+
+  private static aggregateCustomMetrics(metrics: CustomMetric[]) {
+    const byName: Record<
+      string,
+      {
+        values: number[];
+        latest: number;
+      }
+    > = {};
+
+    // Group values by metric name
+    metrics.forEach((metric) => {
+      const name = metric.metadata.name;
+      if (!byName[name]) {
+        byName[name] = {
+          values: [],
+          latest: metric.value,
+        };
+      }
+      byName[name].values.push(metric.value);
+      byName[name].latest = metric.value; // Last value will be the latest
+    });
+
+    // Calculate statistics for each metric
+    return {
+      byName: Object.entries(byName).reduce(
+        (acc, [name, data]) => {
+          acc[name] = {
+            count: data.values.length,
+            latest: data.latest,
+            average: data.values.reduce((sum, val) => sum + val, 0) / data.values.length,
+            max: Math.max(...data.values),
+            min: Math.min(...data.values),
+          };
+          return acc;
+        },
+        {} as Record<
+          string,
+          {
+            count: number;
+            latest: number;
+            average: number;
+            max: number;
+            min: number;
+          }
+        >
+      ),
     };
   }
 

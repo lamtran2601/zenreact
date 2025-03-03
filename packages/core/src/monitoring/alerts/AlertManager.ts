@@ -1,10 +1,16 @@
 import { AggregatedMetrics } from '../aggregator';
 
+export interface AlertConfig {
+  threshold: number;
+  level: 'warning' | 'error' | 'critical';
+  duration?: number; // Optional duration to wait before triggering
+}
+
 export interface AlertThreshold {
   id: string;
   name: string;
   description: string;
-  type: 'render' | 'memory' | 'network';
+  type: 'render' | 'memory' | 'network' | 'custom';
   condition: (metrics: AggregatedMetrics) => boolean;
   severity: 'info' | 'warning' | 'error';
 }

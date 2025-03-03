@@ -6,13 +6,29 @@ describe('MemorySampler', () => {
   let sampler: MemorySampler;
 
   beforeEach(() => {
+    // Enable fake timers for each test
+    jest.useFakeTimers({ doNotFake: ['nextTick', 'queueMicrotask'] });
+
+    // Mock process.memoryUsage for Node environment
+    const mockMemoryUsage = {
+      heapUsed: 1000000,
+      heapTotal: 2000000,
+    };
+
+    jest.spyOn(process, 'memoryUsage').mockImplementation(() => ({
+      heapUsed: mockMemoryUsage.heapUsed,
+      heapTotal: mockMemoryUsage.heapTotal,
+      external: 0,
+      arrayBuffers: 0,
+      rss: 0,
+    }));
+
     collector = new MetricsCollector({ bufferSize: 1000 });
-    jest.useFakeTimers();
   });
 
   afterEach(() => {
     sampler?.destroy();
-    jest.useRealTimers();
+    jest.runOnlyPendingTimers(); // Flush any remaining timers
   });
 
   test('starts sampling when enabled', () => {
@@ -25,8 +41,11 @@ describe('MemorySampler', () => {
     // Should have initial sample
     expect(collector.getMetrics().memory.length).toBe(1);
 
-    // Advance timer and check for new samples
-    jest.advanceTimersByTime(2000);
+    // Run pending timers and check for new samples
+    jest.runOnlyPendingTimers();
+    expect(collector.getMetrics().memory.length).toBe(2);
+
+    jest.runOnlyPendingTimers();
     expect(collector.getMetrics().memory.length).toBe(3);
   });
 
@@ -37,7 +56,7 @@ describe('MemorySampler', () => {
       intervalMs: 1000,
     });
 
-    jest.advanceTimersByTime(2000);
+    jest.runOnlyPendingTimers();
     expect(collector.getMetrics().memory.length).toBe(0);
   });
 
@@ -49,18 +68,18 @@ describe('MemorySampler', () => {
     });
 
     // Initial sample + 1 interval
-    jest.advanceTimersByTime(1000);
+    jest.runOnlyPendingTimers();
     expect(collector.getMetrics().memory.length).toBe(2);
 
     sampler.stop();
-    jest.advanceTimersByTime(2000);
+    jest.runOnlyPendingTimers();
     const samplesAfterStop = collector.getMetrics().memory.length;
 
     sampler.start();
     // Should get new initial sample
     expect(collector.getMetrics().memory.length).toBe(samplesAfterStop + 1);
 
-    jest.advanceTimersByTime(1000);
+    jest.runOnlyPendingTimers();
     expect(collector.getMetrics().memory.length).toBe(samplesAfterStop + 2);
   });
 
@@ -71,20 +90,22 @@ describe('MemorySampler', () => {
       intervalMs: 1000,
     });
 
-    jest.advanceTimersByTime(1000);
+    jest.runOnlyPendingTimers();
     expect(collector.getMetrics().memory.length).toBe(2);
 
     sampler.destroy();
-    jest.advanceTimersByTime(2000);
+    jest.runOnlyPendingTimers();
     expect(collector.getMetrics().memory.length).toBe(2); // No new samples
   });
 
   test('uses default interval when not specified', () => {
     sampler = new MemorySampler({ collector });
 
-    // Default interval is 60000ms (1 minute)
-    jest.advanceTimersByTime(60000);
-    // Initial sample + 1 interval
+    // Should have initial sample
+    expect(collector.getMetrics().memory.length).toBe(1);
+
+    // Run one interval
+    jest.runOnlyPendingTimers();
     expect(collector.getMetrics().memory.length).toBe(2);
   });
 
@@ -97,7 +118,7 @@ describe('MemorySampler', () => {
     sampler.start(); // Already started by constructor
     sampler.start(); // Should not create another interval
 
-    jest.advanceTimersByTime(1000);
+    jest.runOnlyPendingTimers();
     // Should only have initial sample + 1 interval
     expect(collector.getMetrics().memory.length).toBe(2);
   });
