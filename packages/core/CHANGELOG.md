@@ -1,5 +1,26 @@
 # @zenreact/core
 
+## 0.2.0
+
+### Major Changes
+
+- Added comprehensive monitoring system:
+  - Real-time dashboard visualization with component performance charts
+  - Memory usage and network performance monitoring
+  - Alert system with configurable thresholds and severity levels
+  - Metric persistence with local storage integration
+  - Component-level render time tracking
+  - Network request monitoring with status codes
+  - Memory usage tracking with heap statistics
+  - Predefined alert templates for common scenarios
+  - Alert history management with automatic cleanup
+  - Session-persistent metrics with configurable retention
+
+### Documentation
+
+- Added monitoring system documentation with usage examples and best practices
+- Updated implementation status in project plans
+
 ## 0.1.5
 
 ### Patch Changes

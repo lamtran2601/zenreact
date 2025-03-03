@@ -1,87 +1,125 @@
 {
   "core_principles": {
-    "simple_first": {
-      "description": "Start with the simplest possible implementation",
+    "make_it_work": {
+      "description": "Focus on getting basic functionality working first",
       "rules": [
-        "Avoid premature optimization",
-        "Keep code readable and maintainable",
-        "Use straightforward solutions over complex ones"
+        "Start with the simplest implementation",
+        "Create minimal viable solutions",
+        "Focus on core functionality",
+        "Validate basic functionality",
+        "Implement basic error handling"
       ]
     },
-    "work_first_optimize_later": {
-      "description": "Get basic functionality working before improving performance",
+    "make_it_right": {
+      "description": "Ensure code correctness and maintainability",
       "rules": [
-        "Ensure code passes tests before optimization",
-        "Create working prototypes before refining",
-        "Document performance bottlenecks for later optimization",
-        "Optimize context before sending to AI providers to reduce costs"
+        "Write comprehensive tests",
+        "Refactor for clarity",
+        "Improve error handling",
+        "Follow best practices",
+        "Add proper types"
+      ]
+    },
+    "make_it_fast": {
+      "description": "Optimize performance after code is working correctly",
+      "rules": [
+        "Profile and identify bottlenecks",
+        "Optimize with measured data",
+        "Document improvements",
+        "Monitor memory usage"
       ]
     },
     "rapid_development": {
       "description": "Focus on quick iterations",
       "rules": [
-        "Use existing solutions when available",
-        "Minimize setup and configuration time",
-        "Keep development cycles short"
+        "Use existing solutions when possible",
+        "Minimize setup time",
+        "Keep cycles short",
+        "Validate each phase"
       ]
     }
   },
   "documentation": {
     "always_update": {
       "documentation": [
-        "Update relevant documentation immediately after changes",
+        "Update docs after changes",
         "Keep API references current",
-        "Document key decisions and their rationale",
-        "Update examples when implementation changes"
+        "Document key decisions",
+        "Update examples"
       ],
       "context": [
-        "Maintain clear context in code comments",
-        "Update implementation notes",
-        "Document dependencies and requirements",
-        "Keep architecture diagrams current",
-        "Document context optimization strategies for AI providers"
+        "Write clear code comments",
+        "Document dependencies",
+        "Document architecture",
+        "Document optimizations"
       ],
       "status": [
-        "Track task progress in relevant documents",
-        "Update development roadmap",
-        "Keep issue/ticket status current",
-        "Document any blockers or challenges"
+        "Track task progress",
+        "Update roadmap",
+        "Track issues",
+        "Document blockers"
       ]
     }
   },
   "commit_practices": {
     "when_to_commit": [
-      "After each working piece of functionality",
-      "When documentation is updated",
+      "After functionality works",
       "When tests pass",
-      "After significant refactoring"
+      "After improvements",
+      "After optimizations"
     ],
     "commit_structure": [
-      "Clear, descriptive commit messages",
-      "Reference related issues/tickets",
-      "Include context for changes",
-      "Document breaking changes"
+      "Clear messages",
+      "Reference issues",
+      "Include context",
+      "Note breaking changes"
     ]
   },
   "implementation_process": [
-    "Start with basic implementation",
-    "Ensure it works",
-    "Write/update tests",
-    "Update documentation",
-    "Commit changes",
-    "Plan optimization if needed",
-    "Implement optimization",
-    "Update documentation again",
-    "Commit optimized version"
+    "Phase 1 - Make it Work:",
+    "Build core features",
+    "Verify functionality",
+    "Add basic tests",
+    "Phase 2 - Make it Right:",
+    "Add more tests",
+    "Refactor code",
+    "Improve error handling",
+    "Review quality",
+    "Phase 3 - Make it Fast:",
+    "Profile performance",
+    "Optimize code",
+    "Validate improvements"
   ],
   "review_checklist": [
-    "Basic implementation works",
-    "Tests pass",
-    "Documentation updated",
-    "Context added/updated",
-    "Status tracked",
-    "Changes committed",
-    "Optimization needs identified (if any)",
-    "Context optimization verified for AI providers"
-  ]
+    "Work Phase:",
+    "Core features work",
+    "Basic tests pass",
+    "Right Phase:",
+    "Good test coverage",
+    "Clean code",
+    "Error handling works",
+    "Fast Phase:",
+    "Performance improved",
+    "All tests pass"
+  ],
+  "architecture_guidelines": {
+    "state_management": [
+      "Define state ownership",
+      "Handle state changes",
+      "Verify consistency",
+      "Document flow"
+    ],
+    "error_handling": [
+      "Catch errors properly",
+      "Give clear messages",
+      "Handle edge cases",
+      "Log properly"
+    ],
+    "testing": [
+      "Unit tests",
+      "Integration tests",
+      "Performance tests",
+      "Error tests"
+    ]
+  }
 }
