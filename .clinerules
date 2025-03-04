@@ -80,6 +80,7 @@
     "Build core features",
     "Verify functionality",
     "Add basic tests",
+    "Run tests: pnpm jest feature.test.ts",
     "Phase 2 - Make it Right:",
     "Add more tests",
     "Refactor code",

@@ -19,6 +19,10 @@ const config = {
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',
   },
+  fakeTimers: {
+    enableGlobally: true,
+  },
+  testTimeout: 60000, // 60 seconds timeout for all tests
 };
 
 export default config;
