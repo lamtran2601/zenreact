@@ -170,3 +170,6 @@ export const monitor = PerformanceMonitor.getInstance();
 // Type exports
 export type { AlertConfig } from './alerts/AlertManager';
 export type { CustomMetric } from './metrics';
+
+// Export all hooks
+export * from './hooks';
