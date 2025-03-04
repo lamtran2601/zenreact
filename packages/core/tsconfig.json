@@ -5,7 +5,7 @@
     "rootDir": "./src",
     "composite": true,
     "jsx": "react",
-    "types": ["jest", "@testing-library/jest-dom"],
+    "types": ["jest", "@testing-library/jest-dom", "node"],
     "removeComments": true,
     "importHelpers": true,
     "noEmitHelpers": true,
@@ -15,5 +15,5 @@
     "declarationDir": "./dist/types"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.tsx", "**/setupTests.ts"]
 }
