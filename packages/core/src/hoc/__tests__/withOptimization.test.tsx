@@ -1,48 +1,52 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { withOptimization } from '../withOptimization';
 
+interface TestProps {
+  text: string;
+}
+
 describe('withOptimization', () => {
-  it('renders component with initial props', () => {
-    const TestComponent = ({ text }: { text: string }) => <div>{text}</div>;
-    const OptimizedComponent = withOptimization(TestComponent);
+  const TestComponent: React.FC<TestProps> = ({ text }) => <div>{text}</div>;
 
-    const { getByText } = render(<OptimizedComponent text="Hello" />);
-    expect(getByText('Hello')).toBeInTheDocument();
+  it('should render the wrapped component', () => {
+    const OptimizedComponent = withOptimization(TestComponent);
+    const { getByText } = render(<OptimizedComponent text="test" />);
+    expect(getByText('test')).toBeInTheDocument();
   });
 
-  it('updates when props change', () => {
-    const TestComponent = ({ text }: { text: string }) => <div>{text}</div>;
-    const OptimizedComponent = withOptimization(TestComponent);
+  it('should preserve the displayName', () => {
+    const TestComponentWithName = TestComponent;
+    TestComponentWithName.displayName = 'TestComponent';
 
-    const { getByText, rerender } = render(<OptimizedComponent text="Hello" />);
-    expect(getByText('Hello')).toBeInTheDocument();
-
-    rerender(<OptimizedComponent text="World" />);
-    expect(getByText('World')).toBeInTheDocument();
+    const OptimizedComponent = withOptimization(TestComponentWithName);
+    expect(OptimizedComponent.displayName).toBe('withOptimization(TestComponent)');
   });
 
-  it('prevents re-renders with same props', () => {
-    const renderCount = jest.fn();
-    const TestComponent = ({ text }: { text: string }) => {
-      renderCount();
-      return <div>{text}</div>;
+  it('should use custom name from options', () => {
+    const OptimizedComponent = withOptimization(TestComponent, { name: 'CustomName' });
+    expect(OptimizedComponent.displayName).toBe('withOptimization(CustomName)');
+  });
+
+  it('should apply memoization', () => {
+    const renderSpy = jest.fn();
+    const MemoTestComponent: React.FC<TestProps> = (props) => {
+      renderSpy();
+      return <TestComponent {...props} />;
     };
 
-    const OptimizedComponent = withOptimization(TestComponent);
+    const OptimizedComponent = withOptimization(MemoTestComponent);
+    const { rerender } = render(<OptimizedComponent text="test" />);
 
-    const { rerender } = render(<OptimizedComponent text="Test" />);
-    expect(renderCount).toHaveBeenCalledTimes(1);
+    expect(renderSpy).toHaveBeenCalledTimes(1);
 
-    rerender(<OptimizedComponent text="Test" />);
-    expect(renderCount).toHaveBeenCalledTimes(1); // Should not re-render
-  });
+    // Rerender with same props
+    rerender(<OptimizedComponent text="test" />);
+    expect(renderSpy).toHaveBeenCalledTimes(1);
 
-  it('preserves component display name', () => {
-    const TestComponent = ({ text }: { text: string }) => <div>{text}</div>;
-    TestComponent.displayName = 'CustomTestComponent';
-
-    const OptimizedComponent = withOptimization(TestComponent);
-    expect(OptimizedComponent.displayName).toBe('ZenReact(CustomTestComponent)');
+    // Rerender with different props
+    rerender(<OptimizedComponent text="different" />);
+    expect(renderSpy).toHaveBeenCalledTimes(2);
   });
 });

@@ -1,80 +1,62 @@
-import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { renderHook, act } from '@testing-library/react-hooks';
 import { useOptimizedState } from '../useOptimizedState';
 
 describe('useOptimizedState', () => {
-  it('initializes with provided value', () => {
-    function TestComponent() {
-      const [state] = useOptimizedState('initial');
-      return <div>{state}</div>;
-    }
-
-    const { getByText } = render(<TestComponent />);
-    expect(getByText('initial')).toBeInTheDocument();
+  it('should initialize with the given value', () => {
+    const { result } = renderHook(() => useOptimizedState(0));
+    expect(result.current[0]).toBe(0);
   });
 
-  it('updates state when value changes', () => {
-    function TestComponent() {
-      const [state, setState] = useOptimizedState('initial');
-      return <button onClick={() => setState('updated')}>{state}</button>;
-    }
+  it('should update state when value changes', () => {
+    const { result } = renderHook(() => useOptimizedState(0));
 
-    const { getByText } = render(<TestComponent />);
-    fireEvent.click(getByText('initial'));
-    expect(getByText('updated')).toBeInTheDocument();
+    act(() => {
+      result.current[1](1);
+    });
+
+    expect(result.current[0]).toBe(1);
   });
 
-  it('prevents re-renders with same value', () => {
-    const renderCount = jest.fn();
+  it('should not update state when same value is set', () => {
+    let renderCount = 0;
+    const { result } = renderHook(() => {
+      renderCount++;
+      return useOptimizedState(0);
+    });
 
-    function TestComponent() {
-      const [state, setState] = useOptimizedState('test');
-      renderCount();
-      return <button onClick={() => setState('test')}>{state}</button>;
-    }
+    const initialRenderCount = renderCount;
 
-    const { getByText } = render(<TestComponent />);
-    expect(renderCount).toHaveBeenCalledTimes(1);
+    act(() => {
+      result.current[1](0);
+    });
 
-    fireEvent.click(getByText('test'));
-    expect(renderCount).toHaveBeenCalledTimes(1); // Should not re-render
+    expect(renderCount).toBe(initialRenderCount);
+    expect(result.current[0]).toBe(0);
   });
 
-  it('handles object state updates', () => {
-    function TestComponent() {
-      const [state, setState] = useOptimizedState({ count: 0 });
-      return (
-        <button onClick={() => setState({ count: state.count + 1 })} data-testid="button">
-          {state.count}
-        </button>
-      );
-    }
+  it('should work with object values', () => {
+    const initialObj = { count: 0 };
+    const { result } = renderHook(() => useOptimizedState(initialObj));
 
-    const { getByTestId } = render(<TestComponent />);
-    const button = getByTestId('button');
+    const newObj = { count: 1 };
+    act(() => {
+      result.current[1](newObj);
+    });
 
-    expect(button).toHaveTextContent('0');
-    fireEvent.click(button);
-    expect(button).toHaveTextContent('1');
+    expect(result.current[0]).toEqual(newObj);
   });
 
-  it('handles array state updates', () => {
-    function TestComponent() {
-      const [state, setState] = useOptimizedState<number[]>([]);
-      return (
-        <button onClick={() => setState([...state, state.length])} data-testid="button">
-          {state.join(',')}
-        </button>
-      );
-    }
+  it('should work with null and undefined', () => {
+    const { result } = renderHook(() => useOptimizedState<number | null>(null));
 
-    const { getByTestId } = render(<TestComponent />);
-    const button = getByTestId('button');
+    act(() => {
+      result.current[1](0);
+    });
+    expect(result.current[0]).toBe(0);
 
-    expect(button).toHaveTextContent('');
-    fireEvent.click(button);
-    expect(button).toHaveTextContent('0');
-    fireEvent.click(button);
-    expect(button).toHaveTextContent('0,1');
+    act(() => {
+      result.current[1](null);
+    });
+    expect(result.current[0]).toBe(null);
   });
 });

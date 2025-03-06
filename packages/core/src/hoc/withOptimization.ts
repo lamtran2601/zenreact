@@ -1,19 +1,29 @@
-import React, { ComponentType, memo, PropsWithChildren } from 'react';
-import type { WithOptimization } from '../types';
-import { simpleCompare } from '../utils/compare';
+import React from 'react';
 
-export const withOptimization: WithOptimization = <P extends object>(
-  Component: ComponentType<P>
-): ComponentType<P> => {
-  const Wrapped: ComponentType<P> = (props: PropsWithChildren<P>) =>
-    React.createElement(Component, props);
+interface WithOptimizationOptions {
+  name?: string;
+  debug?: boolean;
+}
 
-  const name = Component.displayName || Component.name || 'Component';
-  const MemoizedComponent = memo(Wrapped, simpleCompare);
+/**
+ * A Higher Order Component that optimizes React components by preventing unnecessary rerenders.
+ *
+ * @param Component - The component to optimize
+ * @param options - Optional configuration for the optimization
+ * @returns The optimized component wrapped with React.memo
+ * @example
+ * ```tsx
+ * const MyOptimizedComponent = withOptimization(MyComponent);
+ * ```
+ */
+export function withOptimization<P extends object>(
+  Component: React.ComponentType<P>,
+  options: WithOptimizationOptions = {}
+): React.MemoExoticComponent<React.ComponentType<P>> {
+  const componentName = options.name || Component.displayName || Component.name || 'Component';
 
-  if (process.env.NODE_ENV !== 'production') {
-    MemoizedComponent.displayName = `ZenReact(${name})`;
-  }
+  const OptimizedComponent = React.memo(Component);
+  OptimizedComponent.displayName = `withOptimization(${componentName})`;
 
-  return MemoizedComponent;
-};
+  return OptimizedComponent;
+}

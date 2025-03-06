@@ -1,126 +1,141 @@
-{
-  "core_principles": {
-    "make_it_work": {
-      "description": "Focus on getting basic functionality working first",
-      "rules": [
-        "Start with the simplest implementation",
-        "Create minimal viable solutions",
-        "Focus on core functionality",
-        "Validate basic functionality",
-        "Implement basic error handling"
-      ]
-    },
-    "make_it_right": {
-      "description": "Ensure code correctness and maintainability",
-      "rules": [
-        "Write comprehensive tests",
-        "Refactor for clarity",
-        "Improve error handling",
-        "Follow best practices",
-        "Add proper types"
-      ]
-    },
-    "make_it_fast": {
-      "description": "Optimize performance after code is working correctly",
-      "rules": [
-        "Profile and identify bottlenecks",
-        "Optimize with measured data",
-        "Document improvements",
-        "Monitor memory usage"
-      ]
-    },
-    "rapid_development": {
-      "description": "Focus on quick iterations",
-      "rules": [
-        "Use existing solutions when possible",
-        "Minimize setup time",
-        "Keep cycles short",
-        "Validate each phase"
-      ]
-    }
-  },
-  "documentation": {
-    "always_update": {
-      "documentation": [
-        "Update docs after changes",
-        "Keep API references current",
-        "Document key decisions",
-        "Update examples"
-      ],
-      "context": [
-        "Write clear code comments",
-        "Document dependencies",
-        "Document architecture",
-        "Document optimizations"
-      ],
-      "status": [
-        "Track task progress",
-        "Update roadmap",
-        "Track issues",
-        "Document blockers"
-      ]
-    }
-  },
-  "commit_practices": {
-    "when_to_commit": [
-      "After functionality works",
-      "When tests pass",
-      "After improvements",
-      "After optimizations"
-    ],
-    "commit_structure": [
-      "Clear messages",
-      "Reference issues",
-      "Include context",
-      "Note breaking changes"
-    ]
-  },
-  "implementation_process": [
-    "Phase 1 - Make it Work:",
-    "Build core features",
-    "Verify functionality",
-    "Add basic tests",
-    "Run tests: pnpm jest feature.test.ts",
-    "Phase 2 - Make it Right:",
-    "Add more tests",
-    "Refactor code",
-    "Improve error handling",
-    "Review quality",
-    "Phase 3 - Make it Fast:",
-    "Profile performance",
-    "Optimize code",
-    "Validate improvements"
-  ],
-  "review_checklist": [
-    "Work Phase:",
-    "Core features work",
-    "Basic tests pass",
-    "Right Phase:",
-    "Good test coverage",
-    "Clean code",
-    "Error handling works",
-    "Fast Phase:",
-    "Performance improved",
-    "All tests pass"
-  ],
-  "architecture_guidelines": {
-    "state_management": [
-      "Define state ownership",
-      "Handle state changes",
-      "Verify consistency",
-      "Document flow"
-    ],
-    "error_handling": [
-      "Catch errors properly",
-      "Give clear messages",
-      "Handle edge cases",
-      "Log properly"
-    ],
-    "testing": [
-      "Unit tests",
-      "Integration tests",
-      "Performance tests",
-      "Error tests"
-    ]
-  }
-}
+# Core Development Philosophy
+
+- Focus on working solutions first
+- Iterate rapidly with clear context
+- Optimize context usage and token efficiency
+- Keep solutions simple and direct
+- Use precise, technical language
+- Avoid conversational fillers
+
+# Communication Strategy
+
+## Task Management
+
+- Focus on one task/question at a time
+- Break complex tasks into smaller, focused steps
+- Provide clear objectives upfront
+- Include only relevant constraints or requirements
+
+## Information Sharing
+
+- Use bullet points over paragraphs
+- Remove unnecessary background information
+- Avoid repeating known information
+- Reference file paths over full contents
+- Share only relevant code portions
+
+# Context Rules
+
+## Maximize Efficiency
+
+- Share minimal context per interaction
+- Prioritize code-first communication
+- Limit architectural discussions unless necessary
+- Focus on implementation details
+- Reset context after major milestones
+
+## Optimize Token Usage
+
+- Use direct, concise instructions
+- Skip non-essential context
+- Focus on relevant code segments
+- Limit explanatory comments
+- Remove redundant information
+
+# Tool Usage Strategy
+
+## Efficient Operations
+
+- Use MCP servers for specialized tasks
+- Prefer targeted tool uses over explanations
+- Leverage built-in capabilities effectively
+- Choose appropriate tools for each task
+
+## Search Optimization
+
+- Use search_files for code patterns
+- Leverage list_code_definition_names for exploration
+- Use list_files strategically
+- Remove boilerplate and unused imports
+
+# Implementation Priorities
+
+## First: Working Solution
+
+- Implement core functionality first
+- Use basic error handling
+- Create minimal tests
+- Write essential documentation
+
+## Second: Quick Iteration
+
+- Gather feedback fast
+- Make rapid improvements
+- Add necessary features
+- Perform basic optimizations
+
+# Development Workflow
+
+## Start Fast
+
+- Use existing patterns when available
+- Choose simple over perfect solutions
+- Implement minimum requirements
+- Skip non-essential features
+
+## Code Smart
+
+- Keep abstractions minimal
+- Use direct solutions
+- Apply simple patterns
+- Focus on core functionality
+
+# Response Optimization
+
+## Code First
+
+- Share essential code only
+- Include core functionality
+- Provide required context
+- Keep comments minimal
+
+## Context Management
+
+- Prune irrelevant information
+- Focus on current task
+- Share only needed files
+- Limit historical context
+- Use appropriate modes for tasks
+- Minimize unnecessary mode switches
+
+# Testing Strategy
+
+- Test core functionality
+- Focus on happy path initially
+- Use basic validation
+- Skip edge cases early
+
+# Documentation Rules
+
+- Keep docs minimal initially
+- Focus on essential usage
+- Document core features
+- Add details iteratively
+
+# Review Process
+
+## Must Have
+
+- Working core functionality
+- Basic error handling
+- Essential tests
+- No obvious bugs
+
+## Later Optimization
+
+- Detailed documentation
+- Performance improvements
+- Complete test coverage
+- Code cleanup
+
+Remember: Working beats perfect, simple beats complex, now beats later.

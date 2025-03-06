@@ -1,19 +1,15 @@
-// Export monitoring functionality
-export { monitor, type MonitoringOptions } from './monitoring';
-export { useMonitor, type UseMonitorOptions } from './monitoring/hooks';
+// Re-export hooks
+export { useOptimizedState } from './hooks/useOptimizedState';
 
-// Export metric types
-export {
-  type RenderMetric,
-  type MemoryMetric,
-  type NetworkMetric,
-  type CustomMetric,
-  type CollectedMetrics,
-} from './monitoring/metrics';
+// Re-export HOCs
+export { withOptimization } from './hoc/withOptimization';
 
-// Export real-time monitoring
-export {
-  RealTimeMetricsMonitor,
-  useRealTimeMetrics,
-  type RealTimeMetricsOptions,
-} from './monitoring/real-time';
+// Feature flags for initial release
+export const VERSION = '0.1.0';
+export const FEATURES = {
+  optimizedState: true,
+  optimizedHOC: true,
+  // Additional features to be added in future releases
+  monitoring: false,
+  modes: false,
+};

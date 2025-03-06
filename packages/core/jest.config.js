@@ -1,28 +1,31 @@
-/** @type {import('jest').Config} */
+// @ts-check
+/* eslint-env node */
+'use strict';
+
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 const config = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
-  testMatch: ['**/__tests__/**/*.test.[jt]s?(x)'],
-  testPathIgnorePatterns: ['<rootDir>/dist/'],
-  transform: {
-    '^.+\\.(ts|tsx)$': [
-      'ts-jest',
-      {
-        tsconfig: 'tsconfig.json',
-        useESM: true,
-      },
-    ],
-  },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
-  extensionsToTreatAsEsm: ['.ts', '.tsx'],
   moduleNameMapper: {
-    '^(\\.{1,2}/.*)\\.js$': '$1',
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
-  fakeTimers: {
-    enableGlobally: true,
+  testMatch: ['<rootDir>/src/**/__tests__/**/*.{ts,tsx}'],
+  transformIgnorePatterns: ['node_modules/(?!(lodash-es)/)'],
+  collectCoverageFrom: [
+    'src/**/*.{ts,tsx}',
+    '!src/**/*.d.ts',
+    '!src/**/*.stories.{ts,tsx}',
+    '!src/**/__tests__/**',
+  ],
+  coverageThreshold: {
+    global: {
+      statements: 80,
+      branches: 80,
+      functions: 80,
+      lines: 80,
+    },
   },
-  testTimeout: 60000, // 60 seconds timeout for all tests
 };
 
 export default config;
