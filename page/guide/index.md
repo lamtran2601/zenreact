@@ -14,9 +14,12 @@ Welcome to the ZenReact documentation. These guides will help you master React o
 ## Getting Started
 
 - [Quick Start Guide](./quick-start) - Get up and running with ZenReact in minutes
+- [Why Choose ZenReact?](./why-zenreact) - Learn about ZenReact's benefits and features
 
-## Best Practices & Architecture
+## Core Concepts
 
+- [Optimization Basics](./optimization-basics) - Master React performance optimization
+- [State Management](./state-management) - Learn efficient state management patterns
 - [Best Practices](./best-practices) - Essential guidelines for optimizing React applications
 
 ## Additional Resources

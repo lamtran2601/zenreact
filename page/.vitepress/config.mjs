@@ -34,9 +34,8 @@ export default defineConfig({
         {
           text: 'Getting Started',
           items: [
-            { text: 'Introduction', link: '/guide/introduction' },
+            { text: 'Why Choose ZenReact?', link: '/guide/why-zenreact' },
             { text: 'Quick Start', link: '/guide/quick-start' },
-            { text: 'Installation', link: '/guide/installation' },
           ],
         },
         {
