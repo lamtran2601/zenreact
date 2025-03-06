@@ -1,6 +1,17 @@
 ---
 title: Software Development Optimization Practices - A Comprehensive Guide
 description: A comprehensive guide to software development optimization practices, focusing on code organization and development workflows for building maintainable software systems.
+date: 2025-03-06
+author: Zen React Team
+readingTime: 25
+image: /assets/dev-practices.png
+series: fundamentals
+tags:
+  - Development
+  - Best Practices
+  - Optimization
+  - Architecture
+  - Workflows
 ---
 
 # Software Development Optimization Practices: A Comprehensive Guide

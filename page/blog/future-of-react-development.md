@@ -1,6 +1,17 @@
 ---
 title: The Future of React Development - Trends and Emerging Patterns
 description: Explore emerging trends, patterns, and technologies shaping the future of React development and modern web applications.
+date: 2025-03-06
+author: Zen React Team
+readingTime: 20
+image: /assets/future-react.png
+series: trends
+tags:
+  - React
+  - Future
+  - Trends
+  - Server Components
+  - Web Assembly
 ---
 
 # The Future of React Development: Trends and Emerging Patterns

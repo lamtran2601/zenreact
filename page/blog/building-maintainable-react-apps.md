@@ -1,6 +1,17 @@
 ---
 title: Building Maintainable React Applications - A Practical Guide
 description: Learn proven strategies and patterns for building scalable, maintainable React applications that stand the test of time.
+date: 2025-03-06
+author: Zen React Team
+readingTime: 30
+image: /assets/maintainable-react.png
+series: architecture
+tags:
+  - React
+  - Architecture
+  - Best Practices
+  - Maintainability
+  - Components
 ---
 
 # Building Maintainable React Applications: A Practical Guide
