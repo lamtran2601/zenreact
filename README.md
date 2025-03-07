@@ -26,7 +26,7 @@ pnpm add @zenreact/core
 Just wrap any slow component with `withOptimization`:
 
 ```jsx
-import { withOptimization } from "@zenreact/core";
+import { withOptimization } from '@zenreact/core';
 
 function MyComponent({ data }) {
   return (
@@ -46,11 +46,11 @@ export default withOptimization(MyComponent);
 Use `useOptimizedState` for smoother state updates:
 
 ```jsx
-import { useOptimizedState } from "@zenreact/core";
+import { useOptimizedState } from '@zenreact/core';
 
 function SearchBox() {
   // Automatically debounces search input
-  const [search, setSearch] = useOptimizedState("");
+  const [search, setSearch] = useOptimizedState('');
 
   return <input value={search} onChange={(e) => setSearch(e.target.value)} />;
 }
@@ -82,18 +82,21 @@ pnpm add @zenreact/server
 ## Benefits
 
 ### Developer Experience
+
 - No complex setup or configuration
 - Just two main functions to learn
 - Automatic optimization without manual intervention
 - Works seamlessly with existing React code
 
 ### Performance Impact
+
 - Automatic detection and prevention of unnecessary re-renders
 - Smart state updates with built-in optimization
 - Smaller bundle size compared to alternatives (3KB vs 30KB+)
 - Better Core Web Vitals scores
 
 ### Team Benefits
+
 - 5-minute setup vs 2-3 days with alternatives
 - Zero configuration to maintain
 - Instant team adoption
@@ -110,7 +113,7 @@ pnpm add @zenreact/server
 
 - [Discord](https://discord.gg/zenreact)
 - [GitHub](https://github.com/zenreact/zenreact)
-- [Twitter](https://twitter.com/zenreact)
+- [X](https://x.com/zenreact)
 
 ## License
 

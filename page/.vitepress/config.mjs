@@ -23,7 +23,7 @@ export default defineConfig({
         items: [
           { text: 'Discord', link: 'https://discord.gg/zenreact' },
           { text: 'GitHub', link: 'https://github.com/lamtran2601/zenreact' },
-          { text: 'Twitter', link: 'https://twitter.com/zenreact' },
+          { text: 'X', link: 'https://x.com/zenreact' },
         ],
       },
     ],
@@ -151,7 +151,7 @@ export default defineConfig({
     // Social links
     socialLinks: [
       { icon: 'github', link: 'https://github.com/lamtran2601/zenreact' },
-      { icon: 'twitter', link: 'https://twitter.com/zenreact' },
+      { icon: 'x', link: 'https://x.com/zenreact' },
       { icon: 'discord', link: 'https://discord.gg/zenreact' },
     ],
 
