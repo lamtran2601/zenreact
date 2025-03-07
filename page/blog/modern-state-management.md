@@ -1,17 +1,20 @@
 ---
 title: Modern State Management in React - Beyond Redux
-description: Explore modern approaches to state management in React applications, from simple hooks to advanced patterns and tools.
+description: A comprehensive guide to modern state management approaches in React applications, covering hooks, patterns, tools, and performance optimization strategies.
 date: 2025-03-06
 author: Zen React Team
 readingTime: 20
 image: /assets/state-management.png
-series: performance
+series: state-management
 tags:
   - React
   - State Management
   - Hooks
   - Performance
   - Architecture
+  - Best Practices
+  - Redux Alternatives
+  - Context API
 ---
 
 # Modern State Management in React: Beyond Redux

@@ -100,6 +100,20 @@ export default defineConfig({
           items: [
             { text: 'Modern State Management', link: '/blog/modern-state-management' },
             { text: 'Optimizing React Performance', link: '/blog/optimizing-react-performance' },
+            { text: 'Monitoring React Performance', link: '/blog/monitoring-react-performance' },
+            {
+              text: 'Testing Optimized React Applications',
+              link: '/blog/testing-optimized-react-apps',
+            },
+            {
+              text: 'Component Optimization Patterns',
+              link: '/blog/component-optimization-patterns',
+            },
+            { text: 'React Performance Case Study', link: '/blog/react-performance-case-study' },
+            {
+              text: 'Progressive Enhancement in React',
+              link: '/blog/progressive-enhancement-react',
+            },
           ],
         },
         {
@@ -109,6 +123,19 @@ export default defineConfig({
             {
               text: 'AI-Optimized React Development',
               link: '/blog/ai-optimized-react-development',
+            },
+            {
+              text: 'Effective AI Assistant Workflows',
+              link: '/blog/effective-ai-assistant-workflows',
+            },
+          ],
+        },
+        {
+          text: 'Content Creation',
+          items: [
+            {
+              text: 'Technical Blogging Best Practices',
+              link: '/blog/technical-blogging-best-practices',
             },
           ],
         },

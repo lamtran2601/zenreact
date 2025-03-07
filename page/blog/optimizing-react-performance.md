@@ -1,6 +1,6 @@
 ---
 title: Optimizing React Performance - A Comprehensive Guide
-description: Learn effective strategies for optimizing React applications and improving user experience through practical performance optimization techniques.
+description: A detailed guide to effective strategies for optimizing React applications, including practical techniques for improving performance, reducing bundle size, and enhancing user experience.
 date: 2025-03-06
 author: Zen React Team
 readingTime: 25
@@ -12,6 +12,9 @@ tags:
   - Optimization
   - Best Practices
   - Monitoring
+  - Code Splitting
+  - Bundle Size
+  - Rendering
 ---
 
 # Optimizing React Performance: A Comprehensive Guide
