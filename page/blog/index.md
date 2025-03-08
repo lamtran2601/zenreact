@@ -60,6 +60,8 @@ Exploring emerging trends and next-generation practices.
   Guide to optimizing React development workflow for AI assistance
 - [Effective AI Assistant Workflows](./effective-ai-assistant-workflows) (20 min read)
   Proven patterns and practices for working with AI coding assistants
+- [Breaking Free from AI Development Loops](./breaking-ai-development-loops) (10 min read)
+  Learn how to prevent getting stuck in endless cycles when working with AI coding assistants
 
 ### Content Creation
 

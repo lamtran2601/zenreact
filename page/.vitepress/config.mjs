@@ -128,6 +128,10 @@ export default defineConfig({
               text: 'Effective AI Assistant Workflows',
               link: '/blog/effective-ai-assistant-workflows',
             },
+            {
+              text: 'Breaking Free from AI Development Loops',
+              link: '/blog/breaking-ai-development-loops',
+            },
           ],
         },
         {
