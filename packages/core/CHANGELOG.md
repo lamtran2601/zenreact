@@ -1,1 +1,0 @@
-# @zenreact/core

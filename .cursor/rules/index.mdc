@@ -1,0 +1,30 @@
+---
+description: Rules index
+globs:
+alwaysApply: true
+---
+
+# Development Rules
+
+## Core Rules
+
+[code-rules.mdc](./code-rules.mdc)
+
+- Development workflow
+- Communication strategy
+- Context management
+- Tool usage
+- Implementation priorities
+- Testing strategy
+- Documentation rules
+
+## React Rules
+
+[react-rules.mdc](./react-rules.mdc)
+
+- Component architecture
+- File structure
+- Development guidelines
+- State management
+- Testing approach
+- Implementation priorities

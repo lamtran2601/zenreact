@@ -1,0 +1,95 @@
+---
+description: reactjs rules
+globs:
+alwaysApply: false
+---
+
+# Core Development Philosophy
+
+- Interface-first development
+- Working code over perfect code
+- Simple solutions over complex ones
+- Clear patterns over clever tricks
+- Early optimization over late fixes
+
+# Component Strategy
+
+## File Structure
+
+- atoms/ for basic UI components
+- molecules/ for composite components
+- organisms/ for feature components
+- services/ for business logic
+- types/ for shared types
+- tests/ co-located with components
+
+## Development Rules
+
+- Start with TypeScript interfaces
+- Keep components under 150 lines
+- Maximum 3 hooks per component
+- Co-locate related files
+- Use named exports
+
+# Implementation Priorities
+
+## First: Core Functionality
+
+- Basic component structure
+- Essential prop types
+- Error boundaries
+- Loading states
+- API integration
+
+## Second: Enhancement
+
+- Performance optimization
+- Type refinement
+- Test coverage
+- Documentation
+- Error handling
+
+# Code Rules
+
+## Component Guidelines
+
+- Single responsibility
+- Pure when possible
+- Memoize list items
+- Implement error handling
+- Add loading states
+
+## State Management
+
+- useState for local
+- Context for shared
+- Zustand for global
+- Normalize complex state
+- Clear data flow
+
+# Response Optimization
+
+## Code First
+
+- Share working code
+- Include prop types
+- Add error handling
+- Keep JSX clean
+
+## Context Management
+
+- Clear hierarchies
+- Minimal prop drilling
+- Smart composition
+- Provider organization
+- Type safety
+
+# Testing Strategy
+
+- Focus on behavior
+- Write alongside code
+- Mock external calls
+- Integration tests
+- Regular maintenance
+
+Remember: Working beats perfect, simple beats complex, now beats later.
