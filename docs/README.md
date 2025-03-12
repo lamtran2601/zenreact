@@ -2,57 +2,53 @@
 
 ## Overview
 
-Welcome to the ZenReact documentation. This documentation is organized into two main sections:
-
-- AI Tooling: Guidelines and patterns for AI-assisted development
-- Dependencies: Project dependencies and their implementation guides
+Welcome to the ZenReact documentation. This documentation covers our AI Tooling system that provides guidelines and patterns for AI-assisted development.
 
 ## Documentation Structure
 
 ```mermaid
 graph TD
     A[ZenReact Documentation] --> B[AI Tooling]
-    A --> C[Dependencies]
 
-    B --> B1[Rules & Patterns]
-    B --> B2[Implementation Guide]
-    B --> B3[Context Management]
+    B --> B1[Core]
+    B --> B2[Rules]
+    B --> B3[Patterns]
 
-    C --> C1[Core Dependencies]
-    C --> C2[Development Dependencies]
-    C --> C3[Templates & Workflows]
+    B1 --> B1a[Auto-Context]
+    B1 --> B1b[Quality System]
+    B1 --> B1c[Rule Engine]
+
+    B2 --> B2a[Basic Rules]
+    B2 --> B2b[Code Rules]
+    B2 --> B2c[Doc Rules]
+
+    B3 --> B3a[Common Patterns]
+    B3 --> B3b[Examples]
+    B3 --> B3c[Templates]
 ```
 
 ## AI Tooling Documentation
 
-The AI Tooling section covers ZenReact's AI assistant tooling system, which uses a rules-based approach for consistent, high-quality development assistance. Key components include:
+The AI Tooling section uses a rules-based approach for consistent, high-quality development assistance. Key components include:
 
-- [Rules and Patterns](./ai-tooling/RULES_AND_PATTERNS.md) - Core development rules and patterns
-- [Implementation Guide](./ai-tooling/IMPLEMENTATION.md) - System architecture and workflows
-- [Context Management](./ai-tooling/CONTEXT.md) - Project context and knowledge maintenance
+### Core Components
 
-For a comprehensive overview, start with the [AI Tooling README](./ai-tooling/README.md).
+- [Auto-Context](./ai-tooling/core/AUTO_CONTEXT.md) - Automatic context loading and management
+- [Quality System](./ai-tooling/core/QUALITY_SYSTEM.md) - Quality assurance through rule-based guidelines
+- [Rule Engine](./ai-tooling/core/RULE_ENGINE.md) - Core rules implementation system
 
-## Dependencies Documentation
+### Rules System
 
-The Dependencies section details project dependencies, version requirements, and implementation guides:
+- [Basic Rules](./ai-tooling/rules/BASIC_RULES.md) - Core development rules
+- [Code Rules](./ai-tooling/rules/CODE_RULES.md) - Code-specific guidelines
+- [Doc Rules](./ai-tooling/rules/DOC_RULES.md) - Documentation standards
 
-View the complete list in the [Dependencies Overview](./dependencies/DEPENDENCIES.md).
+### Pattern System
 
-### Implementation Guides
+- [Common Patterns](./ai-tooling/patterns/COMMON_PATTERNS.md) - Reusable implementation patterns
+- [Examples](./ai-tooling/patterns/EXAMPLES.md) - Implementation examples
+- [Templates](./ai-tooling/patterns/TEMPLATES.md) - Reusable templates
 
-- [Browser Compatibility](./dependencies/BROWSER_CHECK_STEPS.md)
-- [Update Workflow](./dependencies/UPDATE_WORKFLOW.md)
-- [Update Examples](./dependencies/UPDATE_EXAMPLE.md)
+For system architecture details, see [System Architecture](./ai-tooling/SYSTEM_ARCHITECTURE.md).
 
-### Templates & Workflows
-
-- [Dependency Template](./dependencies/_template.md)
-- [Dependency Update Workflow](./dependencies/UPDATE_WORKFLOW.md)
-
-### Popular Dependencies
-
-- [React](./dependencies/react.md)
-- [TailwindCSS](./dependencies/tailwindcss.md)
-- [Zustand](./dependencies/zustand.md)
-- [DaisyUI](./dependencies/daisyui.md)
+For implementation status and roadmap, see [Implementation Status](./ai-tooling/IMPLEMENTATION_STATUS.md).
