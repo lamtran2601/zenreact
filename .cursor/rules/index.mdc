@@ -1,6 +1,6 @@
 ---
-description: Rules index
-globs:
+description: 'Core documentation standards and practices for maintaining consistent, high-quality documentation across the project'
+globs: '**/*.{md,mdx,mdc}'
 alwaysApply: true
 ---
 
@@ -28,3 +28,18 @@ alwaysApply: true
 - State management
 - Testing approach
 - Implementation priorities
+
+## Documentation Rules
+
+[doc-rules.mdc](./doc-rules.mdc)
+
+- Documentation philosophy
+- Structure guidelines
+- Content quality standards
+- Documentation types
+- Formatting rules
+- Documentation workflow
+- Maintenance strategy
+- Best practices
+
+always response what rules will apply to current context
