@@ -1,329 +1,307 @@
-# Project Context Management Guidelines
-
-## Table of Contents
-
-1. [Overview](#overview)
-2. [Context Hierarchy](#context-hierarchy)
-3. [Context Analysis](#context-analysis)
-4. [Pattern Recognition](#pattern-recognition)
-5. [Context Maintenance](#context-maintenance)
-6. [Project Understanding](#project-understanding)
-7. [Best Practices](#best-practices)
+# Context Management for AI Tooling
 
 ## Overview
 
-This document outlines how AI agents should gather, maintain, and utilize project context for effective assistance. These guidelines ensure consistent understanding and operation across different interactions.
+Effective context management is essential for AI-assisted development. This guide outlines how to establish, maintain, and utilize project context to maximize the effectiveness of ZenReact's AI tooling system.
 
-## Context Hierarchy
+## What is Context?
+
+In AI-assisted development, context refers to the comprehensive understanding of:
+
+1. **Project Structure** - Codebase organization, architecture, and dependencies
+2. **Development Patterns** - Established coding patterns, conventions, and standards
+3. **Business Requirements** - Functional and non-functional requirements
+4. **Historical Decisions** - Past choices, trade-offs, and their rationales
+5. **Current State** - Active development areas, known issues, and planned changes
+
+## Context Management Framework
 
 ```mermaid
 graph TD
-    A[Project Context] --> B[Project Structure]
-    A --> C[Technical Stack]
-    A --> D[Development Patterns]
-    A --> E[Quality Standards]
+    A[Context Management] --> B[Context Acquisition]
+    A --> C[Context Maintenance]
+    A --> D[Context Application]
+    A --> E[Context Evolution]
 
-    B --> B1[File Organization]
-    B --> B2[Module Layout]
-    B --> B3[Resource Location]
+    B --> B1[Project Analysis]
+    B --> B2[Pattern Recognition]
+    B --> B3[Knowledge Extraction]
 
-    C --> C1[Languages]
-    C --> C2[Frameworks]
-    C --> C3[Tools]
+    C --> C1[Documentation]
+    C --> C2[Updates]
+    C --> C3[Validation]
 
-    D --> D1[Code Patterns]
-    D --> D2[Architecture]
-    D --> D3[Best Practices]
+    D --> D1[Task Contextualization]
+    D --> D2[Pattern Selection]
+    D --> D3[Decision Support]
 
-    E --> E1[Code Standards]
-    E --> E2[Documentation]
-    E --> E3[Testing Requirements]
+    E --> E1[Context Refinement]
+    E --> E2[Knowledge Integration]
+    E --> E3[Pattern Evolution]
 ```
 
-## Context Analysis
+## Context Acquisition
 
-### Initial Project Scan
+### Project Analysis
 
-```yaml
-initial_scan:
-  steps:
-    - Review project structure
-    - Identify key configuration files
-    - Analyze dependencies
-    - Document tech stack
+1. **Codebase Exploration**
+   - Review directory structure
+   - Identify key components
+   - Map dependencies
+   - Document architecture
 
-  key_indicators:
-    - File organization patterns
-    - Naming conventions
-    - Configuration approaches
-    - Development tooling
-```
+2. **Documentation Review**
+   - Read existing documentation
+   - Extract architectural decisions
+   - Identify business requirements
+   - Note technical constraints
 
-### Technology Assessment
+3. **Pattern Identification**
+   - Recognize coding patterns
+   - Document naming conventions
+   - Identify testing approaches
+   - Map state management patterns
 
-```yaml
-tech_stack:
-  primary_elements:
-    - Programming languages
-    - Frameworks and libraries
-    - Build tools
-    - Testing frameworks
+### Knowledge Extraction
 
-  evaluation_points:
-    - Version compatibility
-    - Integration patterns
-    - Performance requirements
-    - Security considerations
-```
+1. **Key Concepts**
+   - Domain terminology
+   - Business entities
+   - System boundaries
+   - Integration points
 
-## Pattern Recognition
+2. **Technical Decisions**
+   - Technology choices
+   - Architecture decisions
+   - Performance considerations
+   - Security requirements
 
-### Code Patterns
-
-```yaml
-pattern_analysis:
-  code_patterns:
-    - Architectural approaches
-    - Design patterns
-    - Error handling
-    - State management
-
-  documentation_patterns:
-    - Comment styles
-    - Documentation format
-    - API documentation
-    - Usage examples
-```
-
-### Architecture Analysis
-
-```yaml
-architecture_analysis:
-  components:
-    - Core modules
-    - Service layers
-    - Data flow
-    - Integration points
-
-  considerations:
-    - Scalability
-    - Maintainability
-    - Performance
-    - Security
-```
+3. **Development Practices**
+   - Code review process
+   - Testing strategy
+   - Documentation standards
+   - Deployment workflow
 
 ## Context Maintenance
 
-### Dynamic Updates
+### Documentation
 
-```yaml
-context_updates:
-  triggers:
-    - File changes
-    - Dependency updates
-    - Configuration changes
-    - New patterns introduced
+1. **Context Documentation**
+   - Create context maps
+   - Document key patterns
+   - Maintain decision records
+   - Update as project evolves
 
-  update_process:
-    - Identify changes
-    - Analyze impact
-    - Update context
-    - Adjust recommendations
-```
+2. **Knowledge Base**
+   - Organize by domain areas
+   - Link related concepts
+   - Provide examples
+   - Include rationales
 
-### Knowledge Base
+3. **Pattern Library**
+   - Document recurring patterns
+   - Provide usage guidelines
+   - Include examples
+   - Note constraints
 
-```yaml
-knowledge_base:
-  categories:
-    - Common solutions
-    - Best practices
-    - Error resolutions
-    - Performance optimizations
+### Updates
 
-  maintenance:
-    - Regular updates
-    - Pattern validation
-    - Consistency checks
-    - Relevance assessment
-```
+1. **Regular Reviews**
+   - Schedule context reviews
+   - Update after major changes
+   - Validate accuracy
+   - Refine as needed
 
-## Project Understanding
+2. **Change Tracking**
+   - Document significant changes
+   - Update affected areas
+   - Maintain history
+   - Communicate updates
 
-### Code Standards
-
-```yaml
-code_standards:
-  style_guide:
-    - Formatting rules
-    - Naming conventions
-    - Documentation requirements
-    - Code organization
-
-  quality_metrics:
-    - Complexity
-    - Coverage
-    - Performance
-    - Maintainability
-```
-
-### Solution Design
-
-```yaml
-solution_design:
-  steps: 1. Analyze requirements
-    2. Match patterns
-    3. Consider context
-    4. Generate solution
-    5. Validate output
-
-  validation:
-    - Pattern compliance
-    - Style consistency
-    - Performance impact
-    - Integration fit
-```
+3. **Validation**
+   - Verify context accuracy
+   - Test against current code
+   - Resolve inconsistencies
+   - Update as needed
 
 ## Context Application
 
-### Code Generation
+### Task Contextualization
 
-```typescript
-// Example of context-aware code generation
-interface GenerationContext {
-  projectStyle: StyleGuide;
-  patterns: CodePatterns;
-  standards: QualityStandards;
-  dependencies: ProjectDependencies;
-}
+1. **Requirement Analysis**
+   - Map requirements to context
+   - Identify relevant patterns
+   - Determine constraints
+   - Plan implementation
 
-function generateComponent(context: GenerationContext, requirements: Requirements): Component {
-  // Apply context-aware generation rules
-  // Follow project patterns
-  // Ensure consistency
-}
-```
+2. **Pattern Selection**
+   - Choose appropriate patterns
+   - Apply context-specific rules
+   - Consider project standards
+   - Adapt as needed
 
-### Documentation Generation
+3. **Implementation Guidance**
+   - Provide context-aware guidance
+   - Reference relevant patterns
+   - Apply project standards
+   - Ensure consistency
 
-```markdown
-# Component Documentation Template
+### Decision Support
 
-## Overview
+1. **Trade-off Analysis**
+   - Evaluate options based on context
+   - Consider historical decisions
+   - Apply project constraints
+   - Document rationale
 
-[Context-aware description]
+2. **Impact Assessment**
+   - Evaluate change impact
+   - Identify affected areas
+   - Consider dependencies
+   - Plan mitigation
 
-## Implementation Details
+3. **Quality Assurance**
+   - Apply context-specific standards
+   - Ensure pattern compliance
+   - Validate against requirements
+   - Maintain consistency
 
-- Style: [Match project standards]
-- Patterns: [Use established patterns]
-- Integration: [Consider project context]
+## Context Evolution
 
-## Usage Guidelines
+### Refinement Process
 
-\`\`\`typescript
-// Example following project patterns
-\`\`\`
-```
+1. **Feedback Integration**
+   - Collect implementation feedback
+   - Identify context gaps
+   - Document new insights
+   - Update context accordingly
+
+2. **Pattern Evolution**
+   - Refine existing patterns
+   - Document new patterns
+   - Deprecate outdated patterns
+   - Communicate changes
+
+3. **Knowledge Integration**
+   - Incorporate new knowledge
+   - Update existing documentation
+   - Resolve contradictions
+   - Maintain consistency
 
 ## Best Practices
 
-### Context Usage
+### Context Depth vs. Breadth
 
-```yaml
-context_usage:
-  principles:
-    - Start with context
-    - Apply consistently
-    - Validate output
-    - Document decisions
+- **Depth**: Detailed understanding of specific areas
+  - Core components
+  - Critical workflows
+  - Complex patterns
+  - Business logic
 
-  application:
-    - Consider full context
-    - Follow patterns
-    - Maintain standards
-    - Ensure clarity
-```
+- **Breadth**: General understanding of the entire system
+  - Overall architecture
+  - Component relationships
+  - Integration points
+  - Cross-cutting concerns
 
-### Maintenance Guidelines
+### Context Prioritization
 
-```yaml
-context_maintenance:
-  activities:
-    - Regular updates
-    - Pattern validation
-    - Documentation review
-    - Standard assessment
+1. **Critical Context**
+   - Core business logic
+   - Security requirements
+   - Performance constraints
+   - Data integrity rules
 
-  objectives:
-    - Keep current
-    - Maintain quality
-    - Ensure relevance
-    - Support evolution
-```
+2. **Important Context**
+   - UI/UX patterns
+   - Error handling
+   - Logging standards
+   - Testing approaches
 
-## Quality Assurance
+3. **Helpful Context**
+   - Code style preferences
+   - Documentation formats
+   - Naming conventions
+   - Development workflows
 
-### Consistency Validation
+### Context Sharing
 
-```yaml
-consistency_validation:
-  checkpoints:
-    - Pattern adherence
-    - Style compliance
-    - Documentation standards
-    - Integration approach
+1. **Documentation**
+   - Maintain central documentation
+   - Use consistent formats
+   - Link related information
+   - Keep updated
 
-  validation_process:
-    - Compare with existing code
-    - Check style guidelines
-    - Validate patterns
-    - Verify documentation
-```
+2. **Knowledge Transfer**
+   - Regular knowledge sharing
+   - Pair programming
+   - Code reviews
+   - Documentation reviews
 
-### Impact Analysis
+3. **Onboarding**
+   - Context-focused onboarding
+   - Guided exploration
+   - Pattern introduction
+   - Progressive complexity
 
-```yaml
-impact_analysis:
-  areas:
-    - Code base impact
-    - Performance effects
-    - Maintenance implications
-    - Integration consequences
+## Context Management Tools
 
-  assessment:
-    - Analyze changes
-    - Evaluate risks
-    - Consider alternatives
-    - Provide recommendations
-```
+### Documentation Tools
 
-## Continuous Improvement
+- Pattern templates
+- Decision records
+- Context maps
+- Knowledge base
 
-### Pattern Evolution
+### Analysis Tools
 
-```yaml
-pattern_evolution:
-  monitoring:
-    - Usage patterns
-    - Effectiveness
-    - Pain points
-    - Improvement areas
+- Code analysis
+- Dependency mapping
+- Pattern recognition
+- Impact assessment
 
-  adaptation:
-    - Update patterns
-    - Refine guidelines
-    - Enhance documentation
-    - Optimize processes
-```
+### Maintenance Tools
 
-This approach enables effective:
+- Documentation reviews
+- Context validation
+- Update tracking
+- Consistency checking
 
-1. Project comprehension
-2. Pattern application
-3. Quality maintenance
-4. Continuous improvement
-5. Consistent assistance
+## Common Challenges
 
-For implementation details, see [Implementation Guide](./IMPLEMENTATION.md).
-For rules and patterns, refer to [Rules and Patterns](./RULES_AND_PATTERNS.md).
+| Challenge | Solution |
+|-----------|----------|
+| Outdated context | Regular reviews and updates |
+| Incomplete understanding | Systematic exploration and documentation |
+| Conflicting patterns | Pattern reconciliation and standardization |
+| Knowledge silos | Shared documentation and knowledge transfer |
+| Context overload | Prioritization and progressive disclosure |
+
+## Integration with Patterns
+
+- [Progress Tracking](./patterns/PROGRESS_TRACKING.md) - Incorporate context in progress assessment
+- [Complexity Assessment](./patterns/COMPLEXITY_ASSESSMENT.md) - Use context to evaluate complexity
+- [Task Prioritization](./patterns/TASK_PRIORITIZATION.md) - Context-aware prioritization
+- [Documentation Templates](./patterns/DOCUMENTATION_TEMPLATES.md) - Context documentation
+- [Testing Templates](./patterns/TESTING_TEMPLATES.md) - Context-aware testing
+- [Review Templates](./patterns/REVIEW_TEMPLATES.md) - Context validation in reviews
+
+## Success Metrics
+
+- Context completeness
+- Context accuracy
+- Context utilization
+- Implementation consistency
+- Knowledge sharing effectiveness
+
+## Resources
+
+- [Rules and Patterns](./RULES_AND_PATTERNS.md)
+- [Implementation Guide](./IMPLEMENTATION.md)
+- [Implementation Status](./STATUS.md)
+- [Pattern Templates](./patterns/README.md)
+- [Documentation Learnings](./LEARNINGS.md)
+
+---
+
+Last Updated: 2025-03-15
