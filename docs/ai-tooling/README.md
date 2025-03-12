@@ -1,150 +1,146 @@
-# AI Assistant Tooling Documentation
+# AI Tooling System
 
 ## Overview
 
-This documentation covers ZenReact's AI assistant tooling system, which uses a rules-based approach for consistent, high-quality development assistance. Instead of complex program implementations, we define clear guidelines and patterns that enable AI agents to provide effective support.
+The AI Tooling system uses a rules-based approach for consistent, high-quality development assistance. Instead of complex program implementations, we define clear guidelines and patterns that enable AI agents to provide effective support. This streamlined architecture reduces complexity while ensuring consistency and quality.
 
-## Documentation Structure
+## System Structure
 
 ```mermaid
 graph TD
-    A[AI Tooling Docs] --> B[Rules & Patterns]
-    A --> C[Implementation Guide]
-    A --> D[Context Management]
-    A --> E[Implementation Status]
-    A --> F[Documentation Learnings]
-    A --> G[Pattern Templates]
+    A[AI Tooling] --> B[Core]
+    A --> C[Rules]
+    A --> D[Patterns]
 
-    B --> B1[Core Rules]
-    B --> B2[Code Patterns]
-    B --> B3[Quality Standards]
+    B --> B1[Auto-Context]
+    B --> B2[Quality System]
 
-    C --> C1[Architecture]
-    C --> C2[Workflows]
-    C --> C3[Best Practices]
+    C --> C1[Basic Rules]
+    C --> C2[Code Rules]
+    C --> C3[Doc Rules]
 
-    D --> D1[Project Analysis]
-    D --> D2[Pattern Recognition]
-    D --> D3[Context Application]
-
-    E --> E1[Phase Progress]
-    E --> E2[Current Priorities]
-    E --> E3[Success Metrics]
-
-    G --> G1[Task Management]
-    G --> G2[Documentation]
-    G --> G3[Testing]
-    G --> G4[Review]
+    D --> D1[Common Patterns]
+    D --> D2[Examples]
+    D --> D3[Templates]
 ```
 
-### Key Documents
+## Core Components
 
-- [Rules and Patterns](./rules-and-patterns.md)
+The Core components provide the foundation for the AI Tooling system:
 
-  - Core development rules
-  - Code generation patterns
-  - Documentation templates
-  - Quality assurance guidelines
+- [**Auto-Context**](./core/AUTO_CONTEXT.md): Automatically identifies and loads relevant context without manual specification
+- [**Quality System**](./core/QUALITY_SYSTEM.md): Ensures all AI-generated content meets defined standards through rule-based guidelines
 
-- [Implementation Guide](./implementation.md)
+## Rules System
 
-  - System architecture
-  - Implementation phases
-  - Workflow optimization
-  - Integration patterns
+The Rules system defines standards for implementation:
 
-- [Context Management](./context.md)
+- [**Basic Rules**](./rules/BASIC_RULES.md): Fundamental rules that apply to all aspects of the system
+- [**Code Rules**](./rules/CODE_RULES.md): Rules specific to code implementation
+- [**Doc Rules**](./rules/DOC_RULES.md): Rules for documentation
 
-  - Project context guidelines
-  - Pattern recognition
-  - Knowledge maintenance
-  - Best practices
+## Pattern System
 
-- [Implementation Status](./status.md)
+The Pattern system provides reusable implementation approaches:
 
-  - Phase progress tracking
-  - Current priorities
-  - Success metrics
-  - Recent updates
+- [**Common Patterns**](./patterns/COMMON_PATTERNS.md): Frequently used implementation patterns
+- [**Examples**](./patterns/EXAMPLES.md): Concrete examples of pattern implementations
+- [**Templates**](./patterns/TEMPLATES.md): Reusable templates for common implementations
 
-- [Pattern Templates](./patterns/README.md)
+## Implementation Guides
 
-  - [Progress Tracking](./patterns/task-progress.md) - Task progress measurement and reporting
-  - [Complexity Assessment](./patterns/task-complexity.md) - Task complexity evaluation
-  - [Task Prioritization](./patterns/task-priority.md) - Task sequencing and prioritization
-  - [Documentation Templates](./patterns/template-docs.md) - Standardized documentation formats
-  - [Testing Templates](./patterns/template-testing.md) - Comprehensive testing patterns
-  - [Review Templates](./patterns/template-review.md) - Effective review processes
+The following guides provide detailed instructions for using the AI Tooling system:
 
-- [Implementation Examples](./examples/index.md)
+- [**Rule Application Guide**](./guides/RULE_APPLICATION.md): How to effectively apply rules in development
 
-  - [Components](./examples/component.md) - Reusable component patterns
-  - [State Management](./examples/state.md) - Data flow patterns
-  - [Testing](./examples/testing.md) - Test implementation patterns
-  - [Implementation Patterns](./examples/pattern.md) - Core development patterns
+## Reference Materials
 
-- [Documentation Learnings](./learnings.md)
-  - Structure optimization insights
-  - Context management strategies
-  - Documentation best practices
-  - Future improvement plans
+The AI Tooling system includes reference materials to support rule-based development:
 
-## Core Benefits
+- **Rule Quick Reference**: Easy-to-follow rule guidelines
+- **Pattern Examples**: Practical examples of rule application
 
-1. **Consistency**
+## System Architecture
 
-   - Standard patterns
-   - Unified approaches
-   - Quality metrics
-   - Clear guidelines
+For a comprehensive overview of the system architecture, see the [System Architecture](./SYSTEM_ARCHITECTURE.md) document.
 
-2. **Efficiency**
+## Migration Guide
 
-   - Immediate application
-   - No setup required
-   - Quick solutions
-   - Pattern reuse
+For information on migrating from the previous AI Tooling system to the new structure, see the [Migration Guide](./MIGRATION_GUIDE.md).
 
-3. **Adaptability**
+## Implementation Status
 
-   - Easy updates
-   - Pattern evolution
-   - Context awareness
-   - Dynamic improvements
+For the current implementation status, including completed work, in-progress tasks, and next steps, see the [Implementation Status](./IMPLEMENTATION_STATUS.md) document.
 
-4. **Quality**
-   - Built-in standards
-   - Review processes
-   - Best practices
-   - Continuous validation
+## Implementation Phases
 
-## Quick Start
+The AI Tooling system is being implemented in phases:
 
-1. Review the [Rules and Patterns](./rules-and-patterns.md) for core guidelines
-2. Understand the [Implementation](./implementation.md) approach
-3. Follow [Context](./context.md) guidelines for project understanding
-4. Apply [Pattern Templates](./patterns/README.md) for specific tasks
-5. Contribute improvements based on usage
+1. **Phase 1: Core Simplification** (Completed)
 
-## Maintenance
+   - Merge overlapping documentation
+   - Remove redundancies
+   - Create clear hierarchy
+   - Streamline navigation
 
-The documentation should be:
+2. **Phase 2: Rule Enhancement** (Current)
 
-- Regularly reviewed
-- Updated with new patterns
-- Refined based on feedback
-- Kept current with best practices
+   - Define core rules
+   - Create validation system
+   - Implement auto-checks
+   - Add quick reference
 
-## Contributing
+3. **Phase 3: Pattern Focus** (Future)
+   - Identify key patterns
+   - Create pattern library
+   - Add working examples
+   - Build pattern index
 
-To improve this documentation:
+## Benefits
 
-1. Follow existing patterns
-2. Maintain clear structure
-3. Include relevant examples
-4. Update related documents
-5. Test all references
+### For AI Assistant
 
----
+- Clear, rule-based guidance instead of complex programming
+- Direct pattern matching through defined rules and examples
+- Consistent output by following standardized rules
+- Simplified context understanding through rule-based patterns
 
-Last Updated: 2025-03-15
+### For System
+
+- Eliminated complexity by using rules instead of programs
+- Easier maintenance through clear rule definitions
+- Simple validation using rule-based checks
+- Predictable evolution by extending rule sets
+
+## Automation Focus
+
+The system prioritizes automation to reduce manual intervention:
+
+- **Automated Context Loading**: Context is loaded automatically based on task
+- **Automated Rule Validation**: Rules are checked automatically
+- **Automated Pattern Matching**: Patterns are suggested based on context
+- **Automated Quality Checks**: Quality is verified automatically
+
+## AI-Optimized Documentation
+
+All documentation is optimized for AI consumption:
+
+- **Clear Structure**: Hierarchical organization for easy navigation
+- **Concise Format**: Direct, actionable information without verbosity
+- **Pattern-Based**: Organized around recognizable patterns
+- **Example-Rich**: Abundant examples for pattern recognition
+
+## Next Steps
+
+To complete the implementation of the AI Tooling system:
+
+1. Complete Phase 2: Rule Enhancement
+
+   - Implement validation automation
+   - Integrate with CI/CD pipelines
+   - Create rule quick reference
+
+2. Begin Phase 3: Pattern Focus
+   - Identify and document key patterns
+   - Create example implementations
+   - Develop reusable templates

@@ -1,237 +1,295 @@
-# AI Tooling Usage Guide
-
-## Currently Available Tools (Phase 1)
-
-### 1. Task Management Patterns
-
-#### Progress Tracking
-
-- **What**: Standardized patterns for tracking task progress and milestones
-- **How to Use**:
-  1. Reference `patterns/task-progress.md` for tracking templates
-  2. Apply progress tracking at task initiation
-  3. Update progress markers throughout implementation
-  4. Document completion criteria and validation
-
-#### Complexity Assessment
-
-- **What**: Guidelines for evaluating task complexity and effort estimation
-- **How to Use**:
-  1. Consult `patterns/task-complexity.md` for assessment criteria
-  2. Evaluate technical requirements
-  3. Consider integration points
-  4. Document potential challenges
-  5. Assign complexity rating
-
-#### Task Prioritization
-
-- **What**: Frameworks for determining task sequence and importance
-- **How to Use**:
-  1. Follow `patterns/task-priority.md` guidelines
-  2. Assess business value
-  3. Consider technical dependencies
-  4. Account for resource availability
-  5. Establish priority level
-
-### 2. Documentation Templates
-
-#### Pattern Documentation
-
-- **What**: Standardized formats for documenting implementation patterns
-- **How to Use**:
-  1. Use `patterns/template-docs.md` as base template
-  2. Include:
-     - Pattern overview
-     - Usage examples
-     - Implementation guidelines
-     - Related patterns
-
-#### Testing Documentation
-
-- **What**: Templates for test planning and documentation
-- **How to Use**:
-  1. Reference `patterns/template-testing.md`
-  2. Document:
-     - Test scenarios
-     - Test cases
-     - Expected results
-     - Edge cases
-
-#### Review Documentation
-
-- **What**: Templates for conducting and documenting reviews
-- **How to Use**:
-  1. Follow `patterns/template-review.md` format
-  2. Include:
-     - Review criteria
-     - Findings
-     - Action items
-     - Follow-up tasks
-
-### 3. Context Management
-
-#### Project Analysis
-
-- **What**: Guidelines for analyzing and documenting project context
-- **How to Use**:
-  1. Review `context.md` for framework
-  2. Document:
-     - Project structure
-     - Key components
-     - Dependencies
-     - Integration points
-
-#### Pattern Recognition
-
-- **What**: Tools for identifying and documenting recurring patterns
-- **How to Use**:
-  1. Follow pattern identification guidelines in `rules-and-patterns.md`
-  2. Document:
-     - Pattern characteristics
-     - Usage scenarios
-     - Implementation examples
-     - Constraints
-
-## Practical Examples
-
-### Example 1: New Feature Implementation
-
-```markdown
-# Feature: User Authentication
-
-## Progress Tracking
-
-- [x] Initial analysis
-- [ ] Design documentation
-- [ ] Implementation
-- [ ] Testing
-- [ ] Review
-
-## Complexity Assessment
-
-- Technical Complexity: Medium
-- Integration Points: 3
-- New Patterns: 1
-- Risk Level: Low
-
-## Priority
-
-- Business Priority: High
-- Technical Priority: Medium
-- Overall Priority: High
-```
-
-### Example 2: Pattern Documentation
-
-```markdown
-# Pattern: Form Validation
+# AI Tooling System Usage Guide
 
 ## Overview
 
-Standardized approach to form validation using Zod schemas.
+### Purpose and Goals
 
-## Implementation
+The AI Tooling system is designed to provide consistent, high-quality development assistance through a rules-based approach. Instead of complex program implementations, the system uses clear guidelines and patterns that enable AI agents to provide effective support.
 
-\`\`\`typescript
-import { z } from 'zod';
+Key goals:
 
-const formSchema = z.object({
-username: z.string().min(3),
-email: z.string().email(),
-age: z.number().min(18)
-});
-\`\`\`
+- Ensure consistent development practices
+- Reduce complexity through clear rules
+- Improve maintainability with standardized patterns
+- Enable effective AI assistance through clear guidelines
 
-## Usage Example
+### Benefits
 
-\`\`\`typescript
-const validateForm = (data: unknown) => {
-return formSchema.safeParse(data);
-};
-\`\`\`
+For AI Assistant:
 
-## Related Patterns
+- Clear, rule-based guidance instead of complex programming
+- Direct pattern matching through defined rules and examples
+- Consistent output by following standardized rules
+- Simplified context understanding through rule-based patterns
 
-- Error Handling
-- Form Submission
-- User Feedback
-```
+For System:
+
+- Eliminated complexity by using rules instead of programs
+- Easier maintenance through clear rule definitions
+- Simple validation using rule-based checks
+- Predictable evolution by extending rule sets
+
+### System Architecture
+
+The AI Tooling system consists of three main components:
+
+1. **Core Components**
+
+   - Auto-Context system for context management
+   - Rule Engine for validation
+   - Quality System for ensuring standards
+
+2. **Rules System**
+
+   - Basic Rules for fundamental guidelines
+   - Code Rules for implementation standards
+   - Doc Rules for documentation requirements
+
+3. **Pattern System**
+   - Common Patterns for reusable solutions
+   - Examples for practical implementation
+   - Templates for quick starts
+
+## System Components
+
+### Core Components
+
+#### Auto-Context System
+
+- Automatically identifies and loads relevant context
+- Analyzes project structure and patterns
+- Maintains context across interactions
+- Adapts to current development task
+
+#### Rule Engine
+
+- Validates implementations against defined rules
+- Provides immediate feedback on violations
+- Ensures compatibility with existing code
+- Maintains quality standards
+
+#### Quality System
+
+- Ensures code meets quality standards
+- Suggests appropriate tests
+- Validates security requirements
+- Verifies accessibility compliance
+
+### Rules System
+
+#### Basic Rules
+
+- Ensure consistent implementations
+- Define naming conventions
+- Establish structural guidelines
+- Set interaction patterns
+
+#### Code Rules
+
+- Define coding standards
+- Establish architectural patterns
+- Set performance guidelines
+- Specify security requirements
+
+#### Doc Rules
+
+- Set documentation standards
+- Define commenting practices
+- Establish example requirements
+- Ensure accessibility
+
+### Pattern System
+
+#### Common Patterns
+
+- Component implementation patterns
+- State management approaches
+- API integration patterns
+- Error handling strategies
+
+#### Examples
+
+- Working component implementations
+- State management demonstrations
+- Test implementation examples
+- Documentation samples
+
+#### Templates
+
+- Component starter templates
+- Test implementation templates
+- Documentation structure templates
+- Code review templates
+
+## Using the System
+
+### Getting Started
+
+1. **Understanding Documentation**
+
+   - Review system architecture
+   - Familiarize with rules structure
+   - Explore available patterns
+
+2. **Navigation**
+
+   - Use README.md as starting point
+   - Follow document hierarchy
+   - Reference quick guides
+
+3. **Finding Information**
+   - Use clear document structure
+   - Follow cross-references
+   - Leverage examples
+
+### Rule Application
+
+1. **Understanding Rules**
+
+   - Review relevant rule categories
+   - Understand rule requirements
+   - Check example implementations
+
+2. **Applying Rules**
+
+   - Follow rule guidelines
+   - Use provided patterns
+   - Reference examples
+
+3. **Validation**
+   - Check against rule requirements
+   - Use automated validation
+   - Review quality standards
+
+### Pattern Usage
+
+1. **Pattern Selection**
+
+   - Identify relevant patterns
+   - Review pattern requirements
+   - Check pattern examples
+
+2. **Pattern Application**
+
+   - Follow pattern guidelines
+   - Use provided templates
+   - Adapt to specific needs
+
+3. **Pattern Customization**
+   - Maintain pattern integrity
+   - Follow customization guidelines
+   - Document modifications
+
+### Examples
+
+1. **Understanding Examples**
+
+   - Review example context
+   - Understand implementation
+   - Note key patterns
+
+2. **Using Examples**
+
+   - Follow example structure
+   - Adapt to requirements
+   - Maintain consistency
+
+3. **Template Usage**
+   - Select appropriate template
+   - Follow customization guide
+   - Maintain template structure
 
 ## Best Practices
 
-1. **Documentation First**
+### Implementation Tips
 
-   - Document patterns before implementation
-   - Keep documentation up-to-date
-   - Include practical examples
-   - Cross-reference related patterns
+1. **Follow Established Patterns**
 
-2. **Consistent Usage**
+   - Use documented patterns
+   - Maintain consistency
+   - Follow naming conventions
 
-   - Follow established templates
-   - Use standardized formats
-   - Maintain naming conventions
-   - Apply patterns consistently
+2. **Ensure Quality**
 
-3. **Regular Reviews**
+   - Apply quality guidelines
+   - Use automated checks
+   - Follow security practices
 
-   - Review documentation regularly
-   - Update based on feedback
-   - Remove obsolete patterns
-   - Add new learnings
+3. **Maintain Consistency**
+   - Follow coding standards
+   - Use established patterns
+   - Document modifications
 
-4. **Integration Focus**
-   - Consider system-wide impact
-   - Document integration points
-   - Note dependencies
-   - Address cross-cutting concerns
+### Quality Guidelines
 
-## Common Workflows
+1. **Code Quality**
 
-1. **New Feature Development**
+   - Follow coding standards
+   - Use automated testing
+   - Implement security checks
 
-   ```mermaid
-   graph TD
-       A[Task Analysis] --> B[Complexity Assessment]
-       B --> C[Priority Assignment]
-       C --> D[Pattern Selection]
-       D --> E[Implementation]
-       E --> F[Documentation]
-       F --> G[Review]
-   ```
+2. **Documentation Quality**
 
-2. **Pattern Documentation**
-   ```mermaid
-   graph TD
-       A[Pattern Identification] --> B[Template Selection]
-       B --> C[Documentation Creation]
-       C --> D[Example Development]
-       D --> E[Review Process]
-       E --> F[Integration]
-   ```
+   - Follow doc standards
+   - Include examples
+   - Maintain clarity
 
-## Next Steps
+3. **Pattern Quality**
+   - Follow pattern guidelines
+   - Document customizations
+   - Maintain consistency
 
-1. **Using These Tools**
+### Common Patterns
 
-   - Review existing documentation
-   - Select appropriate templates
-   - Apply patterns consistently
-   - Document usage examples
+1. **Pattern Selection**
 
-2. **Contributing**
+   - Choose appropriate patterns
+   - Consider requirements
+   - Review examples
 
-   - Follow documentation standards
+2. **Pattern Implementation**
+
+   - Follow pattern guidelines
    - Use provided templates
-   - Include practical examples
-   - Update related documents
+   - Document modifications
 
-3. **Getting Help**
-   - Reference pattern documentation
-   - Consult implementation guides
-   - Review example implementations
-   - Check related patterns
+3. **Pattern Combination**
+   - Ensure compatibility
+   - Maintain consistency
+   - Document integration
 
----
+## Implementation Status
 
-Last Updated: 2025-03-12
+The AI Tooling system is being implemented in phases:
+
+1. **Phase 1: Core Simplification** (Completed)
+
+   - Merged documentation
+   - Removed redundancies
+   - Created clear hierarchy
+   - Streamlined navigation
+
+2. **Phase 2: Rule Enhancement** (Current)
+
+   - Defining core rules
+   - Creating validation system
+   - Implementing auto-checks
+   - Adding quick reference
+
+3. **Phase 3: Pattern Focus** (Future)
+   - Identifying key patterns
+   - Creating pattern library
+   - Adding working examples
+   - Building pattern index
+
+## Timeline
+
+| Phase                        | Status         | Estimated Completion  |
+| ---------------------------- | -------------- | --------------------- |
+| Phase 1: Core Simplification | ✅ Completed   | Completed             |
+| Phase 2: Rule Enhancement    | 🔄 In Progress | 2 weeks               |
+| Phase 3: Pattern Focus       | ⬜ Planned     | 4 weeks after Phase 2 |
+
+## Conclusion
+
+The AI Tooling system provides a structured, rules-based approach to development that ensures consistency and quality while reducing complexity. By following this guide and leveraging the provided patterns and examples, teams can effectively implement and maintain high-quality software solutions.
