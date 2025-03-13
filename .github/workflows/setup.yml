@@ -6,11 +6,7 @@ on:
       node-version:
         required: false
         type: string
-        default: '18'
-      pnpm-version:
-        required: false
-        type: string
-        default: '8'
+        default: '20'
       install-dependencies:
         required: false
         type: boolean
@@ -35,7 +31,6 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: ${{ inputs.pnpm-version }}
           run_install: false
 
       - name: Get pnpm store directory
