@@ -14,10 +14,10 @@ on:
 
 jobs:
   setup:
-   - name: Checkout
-    uses: actions/checkout@v4
-
-    uses: ./.github/workflows/setup.yml
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/setup.yml
     with:
       install-dependencies: true
       filter-packages: '@zenreact/react-app'
@@ -93,6 +93,7 @@ jobs:
       run:
         working-directory: packages/react-app
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/workflows/setup.yml
         with:
           install-dependencies: true
