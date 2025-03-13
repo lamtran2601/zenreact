@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build Page
-        run: pnpm page:build
+        run: pnpm --filter @zenreact/page build
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
@@ -33,5 +33,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: zenreact
-          directory: page/.vitepress/dist
+          directory: packages/page/.vitepress/dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
