@@ -14,14 +14,10 @@ on:
 
 jobs:
   setup:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup Environment
-        uses: ./.github/workflows/setup@main
-        with:
-          install-dependencies: true
-          filter-packages: '@zenreact/react-app'
+    uses: ./.github/workflows/setup.yml
+    with:
+      install-dependencies: true
+      filter-packages: '@zenreact/react-app'
 
   validate:
     name: Validate Pattern Compliance
@@ -31,6 +27,7 @@ jobs:
       run:
         working-directory: packages/react-app
     steps:
+      - uses: actions/checkout@v4
       - name: Run pattern validation
         run: pnpm run validate:patterns
       - name: Check pattern annotations
@@ -44,6 +41,7 @@ jobs:
       run:
         working-directory: packages/react-app
     steps:
+      - uses: actions/checkout@v4
       - name: Run ESLint
         run: pnpm run lint
       - name: Run TypeScript check
@@ -57,6 +55,7 @@ jobs:
       run:
         working-directory: packages/react-app
     steps:
+      - uses: actions/checkout@v4
       - name: Run unit tests
         run: pnpm run test:unit
       - name: Run integration tests
@@ -74,6 +73,7 @@ jobs:
       run:
         working-directory: packages/react-app
     steps:
+      - uses: actions/checkout@v4
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps
       - name: Run E2E tests
@@ -95,11 +95,6 @@ jobs:
         working-directory: packages/react-app
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Environment
-        uses: ./.github/workflows/setup@main
-        with:
-          install-dependencies: true
-          filter-packages: '@zenreact/react-app'
       - name: Build application
         run: pnpm run build
       - name: Run performance checks
