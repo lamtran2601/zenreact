@@ -17,10 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/workflows/setup.yml
-    with:
-      install-dependencies: true
-      filter-packages: '@zenreact/react-app'
+      - name: Setup Environment
+        uses: ./.github/workflows/setup@main
+        with:
+          install-dependencies: true
+          filter-packages: '@zenreact/react-app'
 
   validate:
     name: Validate Pattern Compliance
@@ -94,7 +95,8 @@ jobs:
         working-directory: packages/react-app
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/workflows/setup.yml
+      - name: Setup Environment
+        uses: ./.github/workflows/setup@main
         with:
           install-dependencies: true
           filter-packages: '@zenreact/react-app'
