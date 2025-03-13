@@ -1,4 +1,4 @@
-name: Deploy Page
+name: Page Deploy
 
 on:
   push:
@@ -16,6 +16,9 @@ jobs:
       deployments: write
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - uses: ./.github/workflows/setup.yml
         with:
           filter-packages: '@zenreact/page'
