@@ -1,0 +1,33 @@
+name: Deploy Page
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'packages/page/**'
+      - '.github/workflows/page-deploy.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      - uses: ./.github/workflows/setup.yml
+        with:
+          filter-packages: '@zenreact/page'
+
+      - name: Build Page
+        run: pnpm page:build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: zenreact
+          directory: page/.vitepress/dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

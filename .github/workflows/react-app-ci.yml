@@ -3,24 +3,30 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [main]
+    paths:
+      - 'packages/react-app/**'
+      - '.github/workflows/react-app-ci.yml'
   pull_request:
     branches: [main]
+    paths:
+      - 'packages/react-app/**'
+      - '.github/workflows/react-app-ci.yml'
 
 jobs:
+  setup:
+    uses: ./.github/workflows/setup.yml
+    with:
+      install-dependencies: true
+      filter-packages: '@zenreact/react-app'
+
   validate:
     name: Validate Pattern Compliance
+    needs: setup
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/react-app
     steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'pnpm'
-      - name: Install dependencies
-        run: pnpm install
       - name: Run pattern validation
         run: pnpm run validate:patterns
       - name: Check pattern annotations
@@ -28,18 +34,12 @@ jobs:
 
   lint:
     name: Lint and Type Check
+    needs: setup
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/react-app
     steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'pnpm'
-      - name: Install dependencies
-        run: pnpm install
       - name: Run ESLint
         run: pnpm run lint
       - name: Run TypeScript check
@@ -47,18 +47,12 @@ jobs:
 
   test:
     name: Run Tests
+    needs: setup
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/react-app
     steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'pnpm'
-      - name: Install dependencies
-        run: pnpm install
       - name: Run unit tests
         run: pnpm run test:unit
       - name: Run integration tests
@@ -70,18 +64,12 @@ jobs:
 
   e2e:
     name: End-to-End Tests
+    needs: setup
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/react-app
     steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'pnpm'
-      - name: Install dependencies
-        run: pnpm install
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps
       - name: Run E2E tests
@@ -98,17 +86,14 @@ jobs:
     name: Build Application
     runs-on: ubuntu-latest
     needs: [validate, lint, test]
+    defaults:
+      run:
+        working-directory: packages/react-app
     steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
+      - uses: ./.github/workflows/setup.yml
         with:
-          version: 8
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'pnpm'
-      - name: Install dependencies
-        run: pnpm install
+          install-dependencies: true
+          filter-packages: '@zenreact/react-app'
       - name: Build application
         run: pnpm run build
       - name: Run performance checks
@@ -129,7 +114,7 @@ jobs:
   #     name: preview
   #     url: ${{ steps.deploy.outputs.preview-url }}
   #   steps:
-  #     - uses: actions/checkout@v3
+  #     - uses: actions/checkout@v4
   #     - name: Download build artifacts
   #       uses: actions/download-artifact@v3
   #       with:
@@ -148,7 +133,7 @@ jobs:
   #     name: production
   #     url: https://football-tickets.example.com
   #   steps:
-  #     - uses: actions/checkout@v3
+  #     - uses: actions/checkout@v4
   #     - name: Download build artifacts
   #       uses: actions/download-artifact@v3
   #       with:
