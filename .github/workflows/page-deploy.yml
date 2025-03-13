@@ -9,18 +9,20 @@ on:
   workflow_dispatch:
 
 jobs:
+  setup:
+    uses: ./.github/workflows/setup.yml
+    with:
+      filter-packages: '@zenreact/page'
+      install-dependencies: true
+
   deploy:
+    needs: setup
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: packages/page
     steps:
       - uses: actions/checkout@v4
-
-      - uses: ./.github/workflows/setup.yml
-        with:
-          filter-packages: '@zenreact/page'
-          install-dependencies: true
 
       - name: Build Page
         run: pnpm --filter @zenreact/page build
