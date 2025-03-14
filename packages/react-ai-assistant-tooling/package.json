@@ -1,0 +1,40 @@
+{
+  "name": "react-ai-assistant-tooling",
+  "version": "0.1.0",
+  "description": "A practical system for enhancing React development with AI tools, optimized for Cursor and command-line workflows",
+  "private": true,
+  "author": "Your Organization",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/react-ai-assistant-tooling.git"
+  },
+  "scripts": {
+    "docs:start": "docsify serve docs",
+    "validate:patterns": "node scripts/validation/pattern-check.js",
+    "validate:prompts": "node scripts/validation/prompt-check.js",
+    "generate:component": "node scripts/generation/create-component.js",
+    "generate:hook": "node scripts/generation/create-hook.js",
+    "lint:docs": "markdownlint **/*.md --ignore node_modules",
+    "test": "echo \"No tests implemented yet\" && exit 0"
+  },
+  "devDependencies": {
+    "docsify-cli": "^4.4.4",
+    "markdownlint-cli": "^0.33.0"
+  },
+  "keywords": [
+    "react",
+    "ai",
+    "patterns",
+    "development",
+    "documentation",
+    "cursor",
+    "assistant",
+    "tooling",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  }
+}
