@@ -1,122 +1,86 @@
-# Football Ticket App
+# React App
 
-A modern React application for buying football tickets, built with the latest web technologies and AI-assisted development.
-
-## Technologies
-
-- **Frontend Framework**: React with TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS 4 with DaisyUI 5
-- **State Management**: Zustand
-- **Data Fetching**: TanStack React Query
-- **AI Assistant Tooling**: Autonomous development workflow
+A modern React application built with Vite, TypeScript, and following the best practices from the React AI Guide.
 
 ## Features
 
-- Browse football matches and available tickets
-- Filter tickets by team, date, price range
-- User authentication and profile management
-- Shopping cart and checkout flow
-- Secure payment processing
-- Order history and ticket management
+- **TypeScript Support** - Full TypeScript support for type safety
+- **Component Patterns** - Consistent component structure following best practices
+- **Custom Hooks** - Reusable hooks for common patterns
+- **Performance Optimized** - Built with performance in mind
+- **Accessibility** - Follows accessibility best practices
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 16.x or later
-- pnpm or yarn
+- Node.js 18 or later
+- pnpm 8 or later
 
 ### Installation
 
-1. Clone the repository
 ```bash
-git clone https://github.com/your-username/football-ticket-app.git
-cd football-ticket-app
-```
-
-2. Install dependencies
-```bash
+# Install dependencies
 pnpm install
-```
 
-3. Start the development server
-```bash
-pnpm run dev
-```
+# Start development server
+pnpm dev
 
-4. Open your browser at `http://localhost:5173`
+# Build for production
+pnpm build
+
+# Preview production build
+pnpm preview
+```
 
 ## Project Structure
 
 ```
-src/
-├── components/       # Reusable UI components
-│   ├── common/       # Shared components like buttons, inputs
-│   ├── layout/       # Layout components like header, footer
-│   └── tickets/      # Ticket-specific components
-├── pages/            # Page components for routing
-├── hooks/            # Custom React hooks
-├── stores/           # Zustand stores
-├── services/         # API services and data fetching
-├── utils/            # Utility functions
-├── types/            # TypeScript type definitions
-└── __tests__/        # Test files
+react-app/
+├── docs/               # Documentation
+│   └── context/        # AI context files
+├── public/             # Static assets
+├── src/
+│   ├── assets/         # Images, fonts, etc.
+│   ├── components/     # Reusable components
+│   │   ├── ui/         # UI components (buttons, cards, etc.)
+│   │   ├── layout/     # Layout components
+│   │   └── feature/    # Feature-specific components
+│   ├── hooks/          # Custom React hooks
+│   ├── pages/          # Page components
+│   ├── utils/          # Utility functions
+│   ├── App.tsx         # Main App component
+│   └── main.tsx        # Entry point
+├── index.html          # HTML template
+└── package.json        # Dependencies and scripts
 ```
-## Development Approach
 
-This project uses an autonomous development workflow powered by AI assistant tooling. The workflow is guided by:
+## Development Guidelines
 
-- **Self-Context Guide**: Project structure and patterns
-- **Decision Frameworks**: Architectural and implementation decisions
-- **Self-Review Checklists**: Code quality verification
-- **Automated Testing Guide**: Test generation and standards
+### Component Creation
 
-These guides are located in the `.ai-assistant/guides` directory.
+Components should:
+- Use TypeScript with proper type definitions
+- Follow functional component pattern
+- Implement proper error handling
+- Be accessible
+- Have proper testing
 
-### Context Management
+### Custom Hooks
 
-The project utilizes Context Management to help AI assistants maintain understanding across development sessions:
+Hooks should:
+- Follow the React hooks API design
+- Handle cleanup to prevent memory leaks
+- Provide TypeScript types
+- Follow the naming convention `use[Name]`
 
-- **Context Storage**: Project structure and patterns are stored in `.ai-assistant/context/project-context.json`
-- **Context Prompts**: Generated AI prompts based on the context in `.ai-assistant/prompts/`
-- **Cursor Integration**: Keyboard shortcuts for context refreshing and generation
+## Contributing
 
-#### Using Context in Development
-
-When working with AI assistants:
-
-1. **Refresh Context**: After making significant changes to the codebase, refresh the context:
-   ```
-   npx context-analyzer
-   ```
-   
-2. **Generate Prompts**: Create AI-readable prompts based on the context:
-   ```
-   npx generate-prompt . overview
-   ```
-   
-3. **Reference Context**: Ask the AI to use the context in conversations:
-   ```
-   Using the project context in .ai-assistant/context/project-context.json, help me create a new component that follows our patterns.
-   ```
-
-#### Cursor Keyboard Shortcuts
-
-- `Ctrl+Shift+C`: Refresh project context
-- `Ctrl+Shift+O`: Generate and show project overview
-- `Ctrl+Shift+N`: Create new component
-- `Ctrl+Shift+R`: Review code with checklists
-- `Ctrl+Shift+T`: Generate tests 
-
-## Available Scripts
-
-- `pnpm run dev` - Start the development server
-- `pnpm run build` - Build for production
-- `pnpm run preview` - Preview the production build
-- `pnpm run test` - Run tests
-- `pnpm run lint` - Run linter
+1. Follow the established patterns and conventions
+2. Ensure code passes linting and type checking
+3. Write tests for new features
+4. Document complex logic with comments
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT

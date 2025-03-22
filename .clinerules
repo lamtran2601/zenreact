@@ -1,4 +1,189 @@
----
-alwaysReadFiles:
-  - .cursor/rules/index.mdc
----
+# AI Assistant Rules Framework
+
+# Version: 1.0.0
+
+# Purpose: Define standardized rules and processes for AI-assisted React development
+
+## 1. Context Management Rules
+
+### 1.1 Project Context Initialization
+
+- Load and analyze project structure on task start
+- Identify relevant configuration files
+- Review active development patterns
+- Map dependencies and their usage
+
+### 1.2 Technical Context Tracking
+
+- Monitor file changes across interactions
+- Track active terminal processes
+- Maintain awareness of open editors
+- Consider IDE-specific capabilities
+
+### 1.3 State Preservation
+
+- Preserve relevant context between tasks
+- Track modified files and their states
+- Monitor environment variables
+- Log important decision points
+
+## 2. Task Analysis Framework
+
+### 2.1 Requirements Processing
+
+- Break down task objectives
+- Identify explicit and implicit requirements
+- Map dependencies and constraints
+- Document assumptions
+
+### 2.2 Implementation Planning
+
+- Create atomic task units
+- Define execution order
+- Identify required tools
+- Plan validation steps
+
+### 2.3 Risk Assessment
+
+- Identify potential failure points
+- Plan error recovery strategies
+- Document rollback procedures
+- Consider edge cases
+
+## 3. Tool Usage Protocol
+
+### 3.1 Tool Selection Criteria
+
+- Match tools to task requirements
+- Consider tool limitations
+- Validate tool availability
+- Plan fallback options
+
+### 3.2 Execution Guidelines
+
+- Validate inputs before execution
+- Wait for command completion
+- Verify tool output
+- Handle errors systematically
+
+### 3.3 Output Validation
+
+- Check for expected results
+- Validate file modifications
+- Verify system state
+- Document changes
+
+## 4. Error Handling Procedures
+
+### 4.1 Error Detection
+
+- Monitor tool execution status
+- Validate operation results
+- Check for system errors
+- Verify state consistency
+
+### 4.2 Error Recovery
+
+- Document error context
+- Implement recovery steps
+- Validate system state
+- Resume normal operation
+
+### 4.3 Error Prevention
+
+- Validate inputs proactively
+- Check preconditions
+- Maintain clean state
+- Document potential issues
+
+## 5. Quality Assurance Rules
+
+### 5.1 Code Standards
+
+- Follow project style guides
+- Maintain consistent patterns
+- Document changes clearly
+- Ensure type safety
+
+### 5.2 Testing Requirements
+
+- Verify existing tests
+- Plan test updates
+- Consider edge cases
+- Document test coverage
+
+### 5.3 Documentation
+
+- Update relevant docs
+- Document decisions
+- Maintain clarity
+- Follow project standards
+
+## 6. Communication Protocol
+
+### 6.1 Response Structure
+
+- Provide clear status updates
+- Document thinking process
+- Explain tool usage
+- Detail error handling
+
+### 6.2 Interaction Guidelines
+
+- Use clear technical language
+- Avoid ambiguous terms
+- Maintain professional tone
+- Focus on task completion
+
+### 6.3 Progress Tracking
+
+- Document completed steps
+- Track remaining tasks
+- Report blockers
+- Maintain task context
+
+## 7. Optimization Guidelines
+
+### 7.1 Performance Considerations
+
+- Consider runtime impact
+- Optimize resource usage
+- Monitor system load
+- Document optimizations
+
+### 7.2 Code Quality
+
+- Maintain clean code
+- Follow best practices
+- Consider maintainability
+- Document trade-offs
+
+### 7.3 System Impact
+
+- Monitor system resources
+- Consider scalability
+- Track dependencies
+- Document limitations
+
+## 8. Continuous Improvement
+
+### 8.1 Pattern Recognition
+
+- Identify common patterns
+- Document solutions
+- Update templates
+- Share best practices
+
+### 8.2 Knowledge Base
+
+- Document new scenarios
+- Update rule sets
+- Maintain examples
+- Share learnings
+
+### 8.3 Process Refinement
+
+- Review effectiveness
+- Update procedures
+- Optimize workflows
+- Document improvements
