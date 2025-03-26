@@ -1,54 +1,57 @@
-# ZenReact Documentation
+# ZenReact: Autonomous React Development
 
-## Overview
+Welcome to ZenReact, a React application framework designed for optimal autonomous development with AI assistance. This documentation guides both developers and AI assistants on how to effectively collaborate on building React applications.
 
-Welcome to the ZenReact documentation. This documentation covers our AI Tooling system that provides guidelines and patterns for AI-assisted development.
+## Documentation Purpose
 
-## Documentation Structure
+This guide helps establish clear patterns, workflows, and expectations for AI-assisted React development. By following these guidelines, developers can:
 
-```mermaid
-graph TD
-    A[ZenReact Documentation] --> B[AI Tooling]
+1. Maximize productivity with AI agents
+2. Maintain consistent codebase architecture
+3. Ensure best practices in React development
+4. Create context-rich communication with AI assistants
 
-    B --> B1[Core]
-    B --> B2[Rules]
-    B --> B3[Patterns]
+## Core Documentation Sections
 
-    B1 --> B1a[Auto-Context]
-    B1 --> B1b[Quality System]
-    B1 --> B1c[Rule Engine]
+### Guides
+- [Development Workflow](./guides/01-development-workflow.md) - The overall process for AI-assisted development
+- [Context Management](./guides/02-context-management.md) - How to maintain and communicate project context
+- [Component Development](./guides/03-component-development.md) - Patterns for React component creation
+- [State Management](./guides/04-state-management.md) - Approaches to state in ZenReact
+- [Testing Strategy](./guides/05-testing-strategy.md) - Test-driven development with AI assistance
 
-    B2 --> B2a[Basic Rules]
-    B2 --> B2b[Code Rules]
-    B2 --> B2c[Doc Rules]
+### Templates
+- [Component Template](./templates/component-template.md) - Standard structure for components
+- [Hook Template](./templates/hook-template.md) - Pattern for custom hooks
+- [Store Template](./templates/store-template.md) - Structure for state stores
+- [Context Template](./templates/context-template.md) - Pattern for React contexts
+- [Test Template](./templates/test-template.md) - Structure for component tests
 
-    B3 --> B3a[Common Patterns]
-    B3 --> B3b[Examples]
-    B3 --> B3c[Templates]
-```
+### Rules
+- [Coding Standards](./rules/coding-standards.md) - Syntax and style guidelines
+- [Component Rules](./rules/component-rules.md) - Rules for component development
+- [State Rules](./rules/state-rules.md) - Guidelines for state management
+- [AI Collaboration Rules](./rules/ai-collaboration-rules.md) - Best practices for AI interaction
+- [Architecture Rules](./rules/architecture-rules.md) - Project structure guidelines
 
-## AI Tooling Documentation
+## Getting Started
 
-The AI Tooling section uses a rules-based approach for consistent, high-quality development assistance. Key components include:
+If you're new to autonomous development with ZenReact:
 
-### Core Components
+1. Read the [Development Workflow](./guides/01-development-workflow.md) document first
+2. Familiarize yourself with the [Context Management](./guides/02-context-management.md) approach
+3. Review the [Component Rules](./rules/component-rules.md) and [Component Template](./templates/component-template.md)
+4. Explore [AI Collaboration Rules](./rules/ai-collaboration-rules.md) for effective AI assistance
 
-- [Auto-Context](./ai-tooling/core/AUTO_CONTEXT.md) - Automatic context loading and management
-- [Quality System](./ai-tooling/core/QUALITY_SYSTEM.md) - Quality assurance through rule-based guidelines
-- [Rule Engine](./ai-tooling/core/RULE_ENGINE.md) - Core rules implementation system
+## For AI Assistants
 
-### Rules System
+AI agents should:
+1. Maintain awareness of the project's component hierarchy and architecture
+2. Follow the established patterns in the templates directory
+3. Adhere to the rules in the rules directory
+4. Ask clarifying questions when context is insufficient
+5. Suggest improvements that align with project standards
 
-- [Basic Rules](./ai-tooling/rules/BASIC_RULES.md) - Core development rules
-- [Code Rules](./ai-tooling/rules/CODE_RULES.md) - Code-specific guidelines
-- [Doc Rules](./ai-tooling/rules/DOC_RULES.md) - Documentation standards
+## Contributing
 
-### Pattern System
-
-- [Common Patterns](./ai-tooling/patterns/COMMON_PATTERNS.md) - Reusable implementation patterns
-- [Examples](./ai-tooling/patterns/EXAMPLES.md) - Implementation examples
-- [Templates](./ai-tooling/patterns/TEMPLATES.md) - Reusable templates
-
-For system architecture details, see [System Architecture](./ai-tooling/SYSTEM_ARCHITECTURE.md).
-
-For implementation status and roadmap, see [Implementation Status](./ai-tooling/IMPLEMENTATION_STATUS.md).
+This documentation evolves with the project. Propose changes that improve clarity, address gaps, or incorporate new best practices as they emerge. 
