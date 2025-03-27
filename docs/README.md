@@ -34,23 +34,35 @@ This guide helps establish clear patterns, workflows, and expectations for AI-as
 - [AI Collaboration Rules](./rules/ai-collaboration-rules.md) - Best practices for AI interaction
 - [Architecture Rules](./rules/architecture-rules.md) - Project structure guidelines
 
-## Getting Started
+### AI Resources
+- [AI Assistant Guide](./ai-assistant-guide.md) - Comprehensive guide for AI assistants working on the project
+- [AI Implementation Toolkit](./ai-implementation-toolkit.md) - Tools and techniques for AI-assisted implementation
 
-If you're new to autonomous development with ZenReact:
+## Applying ZenReact to Your ReactJS Project
 
-1. Read the [Development Workflow](./guides/01-development-workflow.md) document first
-2. Familiarize yourself with the [Context Management](./guides/02-context-management.md) approach
-3. Review the [Component Rules](./rules/component-rules.md) and [Component Template](./templates/component-template.md)
-4. Explore [AI Collaboration Rules](./rules/ai-collaboration-rules.md) for effective AI assistance
+### For New Projects
+1. Start by reading the [Development Workflow](./guides/01-development-workflow.md) guide
+2. Set up your project structure following the [Architecture Rules](./rules/architecture-rules.md)
+3. Create your first components using the [Component Template](./templates/component-template.md)
+4. Implement state management following the [State Management](./guides/04-state-management.md) guide
+5. Set up testing using the [Testing Strategy](./guides/05-testing-strategy.md)
+
+### For Existing Projects
+1. Begin by reviewing the [Coding Standards](./rules/coding-standards.md) 
+2. Gradually refactor components to follow the [Component Rules](./rules/component-rules.md)
+3. Incrementally adapt your state management to align with [State Rules](./rules/state-rules.md)
+4. Add tests according to the [Test Template](./templates/test-template.md)
+5. Establish AI collaboration workflows using [Context Management](./guides/02-context-management.md)
 
 ## For AI Assistants
 
 AI agents should:
-1. Maintain awareness of the project's component hierarchy and architecture
-2. Follow the established patterns in the templates directory
-3. Adhere to the rules in the rules directory
-4. Ask clarifying questions when context is insufficient
-5. Suggest improvements that align with project standards
+1. Review the [AI Assistant Guide](./ai-assistant-guide.md) for comprehensive guidance
+2. Maintain awareness of the project's component hierarchy and architecture
+3. Follow the established patterns in the templates directory
+4. Adhere to the rules in the rules directory
+5. Ask clarifying questions when context is insufficient
+6. Suggest improvements that align with project standards
 
 ## Contributing
 

@@ -2,7 +2,6 @@
   "name": "@zenreact/workspace",
   "version": "0.1.0",
   "type": "module",
-  "description": "ZenReact - High-performance React state management and rendering optimization",
   "workspaces": [
     "packages/*"
   ],
