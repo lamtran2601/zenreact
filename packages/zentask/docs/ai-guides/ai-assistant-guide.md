@@ -228,12 +228,41 @@ Follow this consistent workflow for all ZenTask implementations:
    - Plan hooks and store connections
    - Consider error handling and edge cases
 
-### Phase 3: Implementation
+4. **Create Required Planning Artifacts**
+   - Develop Requirement Analysis Document
+   - Create Implementation Plan
+   - Update Context Maintenance Object
+   - Document all decisions with rationale
+   
+   > **IMPORTANT**: Creating thorough planning artifacts is MANDATORY before proceeding to implementation.
+   > See the [Structured AI Development](./structured-ai-development.md) guide for detailed templates and requirements.
 
-1. **Structure Definition**
-   - Create file/directory structure
+### Phase 3: Documentation
+
+1. **Component Documentation**
+   - Document component purpose and responsibility
+   - Define props interface with JSDoc comments
+   - Specify component behaviors and states
+
+2. **State Management Documentation**
+   - Document state structure
+   - Define state update patterns
+   - Document selectors and derived state
+
+3. **Integration Documentation**
+   - Document API integrations
+   - Define data transformations
+   - Specify error handling approaches
+   
+   > **IMPORTANT**: Documentation MUST be completed before implementation begins.
+   > Code implementation should never start until planning and documentation are complete.
+
+### Phase 4: Implementation
+
+1. **Framework Creation**
+   - Create skeleton implementation
+   - Set up file structure
    - Define interfaces and types
-   - Outline component structure
 
 2. **Core Implementation**
    - Implement component logic
@@ -250,7 +279,7 @@ Follow this consistent workflow for all ZenTask implementations:
    - Add JSDoc comments
    - Update relevant documentation
 
-### Phase 4: Validation
+### Phase 5: Validation
 
 1. **Standards Compliance**
    - Verify adherence to coding standards

@@ -1,0 +1,115 @@
+{
+  "project": "ZenTask",
+  "architecture": "Feature-based React application",
+  "description": "Task management application built using the ZenReact framework",
+  "technology_stack": {
+    "framework": "React with TypeScript",
+    "build_tool": "Vite",
+    "package_manager": "pnpm",
+    "ui_components": "DaisyUI with Tailwind CSS 4",
+    "state_management": "Zustand",
+    "server_state": "React Query",
+    "routing": "React Router",
+    "testing": "Vitest and React Testing Library"
+  },
+  "current_focus": "Initial project setup and configuration",
+  "development_phase": "Planning and context establishment",
+  "coding_standards": {
+    "component_naming": "PascalCase for components",
+    "file_structure": "One component per file with index.ts exports",
+    "state_management": "Feature-based Zustand stores",
+    "styling": "Tailwind CSS utility classes with DaisyUI components",
+    "typescript": "Strict typing with comprehensive interfaces",
+    "testing": "Component tests with Vitest and React Testing Library"
+  },
+  "directory_structure": {
+    "src": {
+      "features": "Feature-based modules (auth, tasks, profile)",
+      "components": "Shared components (ui, layout, feedback, form)",
+      "hooks": "Shared custom hooks",
+      "api": "API client and utilities",
+      "utils": "Utility functions",
+      "types": "Shared TypeScript types",
+      "store": "Global Zustand stores",
+      "constants": "Application constants",
+      "routes": "Route definitions"
+    },
+    "tests": "Test setup and utilities",
+    "docs": "Project documentation"
+  },
+  "features": [
+    {
+      "name": "Authentication",
+      "description": "User authentication and authorization",
+      "components": [
+        "LoginForm",
+        "RegistrationForm",
+        "PasswordResetForm"
+      ],
+      "stores": [
+        "authStore"
+      ],
+      "status": "planned"
+    },
+    {
+      "name": "Task Management",
+      "description": "Create, view, update, delete tasks with filtering",
+      "components": [
+        "TaskList",
+        "TaskItem",
+        "TaskForm",
+        "TaskFilters"
+      ],
+      "stores": [
+        "tasksStore",
+        "filtersStore"
+      ],
+      "status": "planned"
+    },
+    {
+      "name": "User Profile",
+      "description": "User profile management and application settings",
+      "components": [
+        "ProfileForm",
+        "ThemeSettings",
+        "NotificationSettings"
+      ],
+      "stores": [
+        "profileStore",
+        "uiStore"
+      ],
+      "status": "planned"
+    }
+  ],
+  "implementation_priorities": [
+    "Setup Tailwind CSS 4 and DaisyUI 5",
+    "Establish project structure",
+    "Implement authentication feature",
+    "Implement task management feature",
+    "Implement user profile feature"
+  ],
+  "ai_implementation_process": {
+    "mandatory_sequence": [
+      "Context Assessment - Complete contextual analysis BEFORE any implementation",
+      "Documentation Review - Document current project state and progress",
+      "Planning Phase - Create detailed implementation plan",
+      "Rule Validation - Verify against ZenTask standards",
+      "Implementation - Follow the plan step-by-step",
+      "Quality Validation - Verify implementation meets standards"
+    ],
+    "enforcement_mechanisms": [
+      "Stop Statement - If implementing without planning, STOP IMMEDIATELY",
+      "Context Check - Before coding, verify context assessment is complete",
+      "Plan Verification - Verify detailed plan exists before implementation",
+      "Implementation Checklist - Use checklists to verify quality"
+    ],
+    "required_documentation": [
+      "development-progress.md - Track development progress",
+      "project-context.json - Project-wide context",
+      "feature-specific context files - For each feature",
+      "implementation plans - For each task",
+      "ai-implementation-sequence.md - Mandatory process for AI agents"
+    ]
+  },
+  "last_updated": "2025-03-28"
+}

@@ -1,5 +1,16 @@
 # AI Assistant Implementation Guide for ZenReact
 
+## ⚠️ CRITICAL: MANDATORY PREREQUISITE STEPS ⚠️
+
+Before beginning any implementation task in ZenReact, you MUST complete the following steps in order:
+
+1. **Context Assessment** - Complete the Context Assessment Framework questionnaire in full
+2. **Document Current State** - Record the current project state using the Context Maintenance Structure
+3. **Create Implementation Plan** - Outline the specific steps for implementation before writing any code
+4. **Validate Against Rules** - Verify the plan adheres to ZenReact standards and rules
+
+❌ **DO NOT SKIP THESE STEPS UNDER ANY CIRCUMSTANCES** - Implementation should never begin without completing proper planning and context management first. Following these steps is not optional.
+
 This guide is designed for AI assistants working with developers on ZenReact projects. It provides structured approaches to navigate the documentation, maintain context, and ensure adherence to ZenReact standards and best practices.
 
 ## 1. Documentation Navigation System
@@ -55,6 +66,8 @@ These are the core documents and their primary focus areas:
    - **Architecture Rules**: Project structure guidelines
 
 ## 2. Context Assessment Framework
+
+⚠️ **MANDATORY REQUIREMENT**: This framework MUST be completed before any implementation begins. Skip this step at your peril.
 
 Before implementing any solution, gather this critical information:
 
@@ -127,6 +140,8 @@ Maintain this structure throughout the conversation:
 
 ## 3. Implementation Workflow Process
 
+⚠️ **WARNING**: Phase 1 (Context Gathering) and Phase 2 (Planning) are REQUIRED prerequisites. Never proceed to Phase 3 (Implementation) until Phases 1 and 2 are fully documented.
+
 Follow this consistent workflow for all ZenReact implementations:
 
 ### Phase 1: Context Gathering
@@ -164,6 +179,14 @@ Follow this consistent workflow for all ZenReact implementations:
    - Consider error handling and edge cases
 
 ### Phase 3: Implementation
+
+⚠️ **STOP AND CHECK**: Before proceeding, ensure you have:
+1. Completed and documented the Context Assessment Framework
+2. Populated the Context Maintenance Structure
+3. Created a detailed implementation plan
+4. Validated the plan against ZenReact standards
+
+If any of these are incomplete, STOP and complete them before writing any code.
 
 1. **Structure Definition**
    - Create file/directory structure
@@ -714,6 +737,55 @@ As an AI assistant, continuously improve your understanding:
    - Identify opportunities for refactoring
    - Suggest pattern optimizations
    - Recommend documentation enhancements
+
+## 11. Error Prevention System
+
+To prevent common mistakes in the development process:
+
+### Mandatory Pre-Implementation Checklist
+
+Every task MUST begin with this checklist before implementation:
+
+```
+□ Context Assessment Framework completed and documented
+□ Current state recorded in Context Maintenance Structure
+□ Component classification and requirements identified
+□ State management approach defined
+□ Implementation plan created with specific steps
+□ Plan validated against relevant ZenReact rules
+□ Integration points with existing code identified
+```
+
+### Implementation Safety Barriers
+
+The following safety barriers must be in place:
+
+1. **No Implementation Without Context** - Never begin coding without completing context assessment
+2. **Document First, Code Second** - Always document the approach before implementation
+3. **Plan-Driven Implementation** - Follow the documented plan step by step
+4. **Continuous Context Updating** - Update context documentation as implementation progresses
+
+### Recovery Process
+
+If you find yourself implementing without proper planning:
+
+1. **Stop immediately** - Do not continue with implementation
+2. **Return to Context Assessment** - Complete the framework
+3. **Document Current Progress** - Update the Context Maintenance Structure
+4. **Create/Update Implementation Plan** - Plan remaining steps
+5. **Resume Implementation** - Follow the plan methodically
+
+### Implementation Quality Validation
+
+After implementation, validate against these criteria:
+
+```
+□ Implementation follows the pre-defined plan
+□ Code adheres to ZenReact standards and rules
+□ Context documentation is complete and up-to-date
+□ Implementation checklists have been completed
+□ Documentation is comprehensive and accurate
+```
 
 ## Conclusion
 

@@ -1,5 +1,18 @@
 # ZenReact AI Implementation Toolkit
 
+## 🚨 CRITICAL: MANDATORY IMPLEMENTATION SEQUENCE 🚨
+
+Before beginning any implementation task, you **MUST** follow the [AI Implementation Sequence](./tools/ai-implementation-sequence.md) in order:
+
+1. **Context Assessment** → Complete the Context Assessment Framework
+2. **State Documentation** → Record project state in Context Maintenance Structure
+3. **Planning Phase** → Create detailed implementation plan
+4. **Rule Validation** → Verify plan against ZenReact standards
+5. **Implementation** → Follow plan step-by-step
+6. **Quality Validation** → Complete implementation checklists
+
+❌ **NEVER SKIP THE PLANNING PHASES** - Implementation must never begin without proper context assessment and planning.
+
 This toolkit brings together all the resources and guides that AI assistants need to effectively implement ZenReact applications. Use this as your starting point to navigate the ZenReact documentation ecosystem.
 
 ## Toolkit Overview
@@ -16,7 +29,7 @@ The ZenReact AI Implementation Toolkit provides a comprehensive set of resources
 ## How to Use This Toolkit
 
 1. **New to ZenReact?** Start with the [AI Assistant Implementation Guide](./ai-assistant-guide.md) to understand the overall approach.
-2. **Starting a new task?** Use the [Context Questionnaire](./tools/context-questionnaire.md) to gather essential information.
+2. **Starting a new task?** First consult the [AI Implementation Sequence](./tools/ai-implementation-sequence.md), then use the [Context Questionnaire](./tools/context-questionnaire.md) to gather essential information.
 3. **Making implementation decisions?** Refer to the [Visualization Guide](./tools/visualization-guide.md) for decision trees.
 4. **Implementing features?** Follow the [Implementation Guide](./tools/implementation-guide.md) for a structured workflow.
 5. **Reviewing implementations?** Use the [Implementation Checklists](./tools/implementation-checklists.md) to verify quality.
@@ -25,6 +38,8 @@ The ZenReact AI Implementation Toolkit provides a comprehensive set of resources
 ## Quick Reference for Common Tasks
 
 ### Starting a New Feature
+
+⚠️ **MANDATORY SEQUENCE**: Always begin with the [AI Implementation Sequence](./tools/ai-implementation-sequence.md)
 
 1. Use the Feature Development Context Template from the [Context Questionnaire](./tools/context-questionnaire.md)
 2. Classify components using the Component Selection Decision Tree from the [Visualization Guide](./tools/visualization-guide.md)
@@ -120,6 +135,9 @@ For adding features to an existing ZenReact project:
 ## Toolkit Resources
 
 All the resources in this toolkit are designed to work together to support effective AI-human collaboration in ZenReact projects.
+
+### [AI Implementation Sequence](./tools/ai-implementation-sequence.md)
+Mandatory sequence for planning and implementing features in the correct order.
 
 ### [AI Assistant Implementation Guide](./ai-assistant-guide.md)
 Comprehensive guide for AI assistants to effectively navigate and apply ZenReact documentation.

@@ -11,6 +11,14 @@ Comprehensive overview for AI assistants working on ZenTask, including:
 - Making appropriate decisions
 - Collaborating effectively with developers
 
+### [Structured AI Development](./structured-ai-development.md)
+**CRITICAL GUIDE** outlining the mandatory Plan-Document-Code paradigm:
+- Required planning artifacts before coding
+- Structured development process
+- Documentation requirements before implementation
+- Example workflows and templates
+- Common pitfalls to avoid
+
 ### [Implementation Techniques](./implementation-techniques.md)
 Specific techniques for implementing features in ZenTask:
 - Component implementation approach
@@ -36,9 +44,10 @@ Approach to solving issues with AI assistance:
 ## How AI Assistants Should Use These Guides
 
 1. **Initial Understanding**: Start with the AI Assistant Guide to understand the overall approach
-2. **Contextual Understanding**: Use Context Templates to gather appropriate context
-3. **Implementation**: Apply Implementation Techniques to follow established patterns
-4. **Problem Solving**: Leverage Troubleshooting with AI for resolving issues
+2. **Process Internalization**: Review the Structured AI Development guide to learn the mandatory workflow
+3. **Contextual Understanding**: Use Context Templates to gather appropriate context
+4. **Implementation**: Apply Implementation Techniques to follow established patterns
+5. **Problem Solving**: Leverage Troubleshooting with AI for resolving issues
 
 ## AI Decision Framework
 
@@ -48,8 +57,9 @@ When making implementation decisions, AI assistants should follow this framework
 2. **Identify Patterns**: Determine if there are existing patterns to follow
 3. **Select Approach**: Choose the appropriate implementation approach
 4. **Plan Implementation**: Break down the implementation into steps
-5. **Execute Plan**: Implement the solution following established patterns
-6. **Verify Solution**: Ensure the implementation meets requirements and follows standards
+5. **Document Thoroughly**: Create all required planning and documentation artifacts
+6. **Execute Plan**: Implement the solution following established patterns
+7. **Verify Solution**: Ensure the implementation meets requirements and follows standards
 
 ## Collaborating with Human Developers
 

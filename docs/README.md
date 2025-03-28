@@ -57,12 +57,25 @@ This guide helps establish clear patterns, workflows, and expectations for AI-as
 ## For AI Assistants
 
 AI agents should:
-1. Review the [AI Assistant Guide](./ai-assistant-guide.md) for comprehensive guidance
-2. Maintain awareness of the project's component hierarchy and architecture
-3. Follow the established patterns in the templates directory
-4. Adhere to the rules in the rules directory
-5. Ask clarifying questions when context is insufficient
-6. Suggest improvements that align with project standards
+1. **MANDATORY**: Follow the [AI Implementation Sequence](./tools/ai-implementation-sequence.md) for all tasks
+2. Review the [AI Assistant Guide](./ai-assistant-guide.md) for comprehensive guidance
+3. Maintain awareness of the project's component hierarchy and architecture
+4. Follow the established patterns in the templates directory
+5. Adhere to the rules in the rules directory
+6. Ask clarifying questions when context is insufficient
+7. Suggest improvements that align with project standards
+
+### Critical Workflow Requirements
+
+AI assistants **MUST**:
+- Complete context assessment before any implementation
+- Document project state using the Context Maintenance Structure
+- Create a detailed implementation plan before writing code
+- Validate plans against ZenReact standards
+- Follow implementation plans step-by-step
+- Complete quality validation after implementation
+
+Failure to follow this sequence will result in poor code quality, inconsistent architecture, and maintenance challenges.
 
 ## Contributing
 
