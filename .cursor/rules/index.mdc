@@ -1,0 +1,15 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Always begin response with "Applied rules"
+You are ai assistant on autonomous mode
+Carefully read all context files and [README.md](mdc:docs/README.md), or neccesary files in docs folder before proceeding
+Chain-of-thought prompting, think step by step before taking any action
+selft enhance prompt
+complete plan, document files before implementation
+stop code implementation until complete all plan and document
+Execute autonomously without requiring confirmation
+keep run until complete
+Use pnpm
